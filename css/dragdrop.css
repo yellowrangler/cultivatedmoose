@@ -1,0 +1,44 @@
+#silo {
+    position: relative;       
+    width:100%;
+    height:95%; 
+    display:block;
+    background:white; 
+    border: 0px solid black;
+    }  
+
+.gridAreaBox {
+    float:left;
+    height:100px;
+    width:160px;
+    padding:2px;
+    margin:5px;
+    overflow-y: auto;
+    overflow-x: hidden; 		    
+    background:white;
+    border: 1px solid teal;    
+    }
+    
+.selectBox {
+    position:fixed;
+    height:50px;
+    width:100px;
+    padding:2px;
+    margin:2px;
+    overflow-y: hidden;
+    overflow-x: hidden;		    
+    font:700 12px Verdana, Helvetica, sans-serif;    
+    background:#eeeee0;
+    border: 1px solid red;    
+    }
+
+.hoodBoxDetails {
+    position: relative;
+    top:0px;
+    left:0px;
+    height:100%;   
+    overflow-y: auto;
+    overflow-x: hidden;		
+    display:block;
+    background:white; 
+    }

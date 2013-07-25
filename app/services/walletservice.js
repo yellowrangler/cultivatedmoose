@@ -1,0 +1,166 @@
+﻿cultivatedmooseApp.service('walletService', function () {
+
+    this.getFabrics = function () {
+        return fabrics;
+    };
+
+    this.getWalletFabricItem = function (id) {
+        for (var i = 0; i < fabrics.length; i++) {
+            if (fabrics[i].id === id) {
+                return fabrics[i];
+            }
+        }
+        return null;
+    };
+
+
+    this.getWallets = function () {
+        return wallets;
+    };
+
+    this.getWalletItem = function (id) {
+        for (var i = 0; i < wallets.length; i++) {
+            if (wallets[i].id == id) {
+                return wallets[i];
+            }
+        }
+        return null;
+    };
+
+    this.calculateItemCost = function (size, qty) {
+        var itemcostStr;
+        if (size == 0 || qty == '' || qty == 0)
+        {
+            itemcostStr = '';
+        }
+        else
+        {
+            var walletObj = this.getWalletItem(size);
+            var itemcost = walletObj.cost;
+
+            var itemcostNbr = qty * itemcost;
+            itemcostStr = "$ "+itemcostNbr.toFixed(2);
+        }
+
+        return(itemcostStr);     
+    };
+
+    this.createFabricModalStr = function () {
+        var fabricStr = "";
+        $.each(fabrics, function() {
+            fabricStr = fabricStr +"<div class='divFabricDisplay'><img id=img-"+this.value+" name='fabricdisplay' class='imgFabricDisplay' src="+this.imageLargeSrc+"><br /><center><div style='width:130px;word-wrap:break-word;'>"+this.description+"</div></center></div>";
+        });
+
+        return fabricStr;
+    };
+
+    this.getWalletImageSrc = function(id) {
+         var walletObj = this.getWalletItem(id);
+         var itemsrc = walletObj.imageLargeSrc;
+
+         return itemsrc;
+    };
+
+    var wallets = [
+        {
+            id: "smallwallet",
+            text: "Small Wallet",
+            value: 1,
+            cost: 30.00,
+            stringValue: "$30.00",
+            imageLargeSrc: "img/SmallQuiltedWalletSingle.png"
+        },
+        {
+            id: "mediumwallet",
+            text: "Medium Wallet",
+            value: 2,
+            cost: 40.00,
+            stringValue: "$40.00",
+            imageLargeSrc: "img/MediumQuiltedWalletSingle.png"
+        },
+        {
+            id: "largewallet",
+            text: "Large Wallet",
+            value: 3,            
+            cost: 50.00,
+            stringValue: "$50.00",
+            imageLargeSrc: "img/LargeQuiltedWalletSingle.png"
+        }
+    ];
+
+    var fabrics = [
+        {
+            id: "green",
+            text: "Green",
+            value: 1,
+            description: "Green Quilt",
+            imageLargeSrc: "img/SampleGreen.png",
+            imageSrc: "img/SampleGreen-32.png"
+        },
+        {
+            id: "fire",
+            text: "Fire",
+            value: 2,
+            description: "Firey red, yellow and black",
+            imageLargeSrc: "img/SampleFire.png",
+            imageSrc: "img/SampleFire-32.png"
+        },
+        {
+            id: "gold",
+            text: "Gold",
+            value: 3,
+            description: "Gold fabric with swirls",
+            imageLargeSrc: "img/SampleGold.png",
+            imageSrc: "img/SampleGold-32.png"
+        },
+        {
+            id: "flowersonblue",
+            text: "Blue with Flowers",
+            value: 4,
+            description: "Flowers on blue background",
+            imageLargeSrc: "img/SampleFlowersonBlue.png",
+            imageSrc: "img/SampleFlowersonBlue-32.png"
+        },
+        {
+            id: "hotpink",
+            text: "Hot Pink",
+            value: 5,
+            description: "Vivid pink",
+            imageLargeSrc: "img/SampleHotPink.png",
+            imageSrc: "img/SampleHotPink-32.png"
+        },
+        {
+            id: "pinkblue",
+            text: "Pink with Blue",
+            value: 6,
+            description: "Pink with blue accents",
+            imageLargeSrc: "img/SamplePinkBlue.png",
+            imageSrc: "img/SamplePinkBlue-32.png"
+        },
+        {
+            id: "pinkgrey",
+            text: "Brown with Pink",
+            value: 7,
+            description: "Brown with pink accents",
+            imageLargeSrc: "img/SamplePinkGrey.png",
+            imageSrc: "img/SamplePinkGrey-32.png"
+        },
+        {
+            id: "red",
+            text: "Red",
+            value: 8,
+            description: "Vivid red",
+            imageLargeSrc: "img/SampleRed.png",
+            imageSrc: "img/SampleRed-32.png"
+        },
+        {
+            id: "redgoldfloral",
+            text: "Red with Flowers",
+            value: 9,
+            description: "Red with yellow flowers",
+            imageLargeSrc: "img/SampleRedGoldFloral.png",
+            imageSrc: "img/SampleRedGoldFloral-32.png"
+        }
+    ];
+
+});

@@ -1,0 +1,128 @@
+﻿.bannerImage {
+    background-image:url(/images/ywstripe.png);
+    background-position:left;
+}
+
+}
+.section {
+    background-color: #efefef;
+    height:800px;
+}
+
+#main-content {
+    display:block;margin:0;padding-top:20px;width:100%;
+}
+
+.ywbreadcrumbs {
+    display:block;height:20px;margin:0;padding-left:80px;width:100%;background:#F6F7ED;
+    font-family:'OFL Sorts Mill Goudy TT', georgia, times, serif;font-size:13px; color:gold;
+}
+
+#section-panel {
+    display:block; padding-left:0px;  
+}
+
+.section-article {
+    display:block; padding-left:0;font-family:'OFL Sorts Mill Goudy TT', georgia, times, serif;font-size:15px;white-space: wrap;
+    margin-left: 0 ;
+  margin-right: 0 ;
+}
+
+#show-panel {
+    width:95%;
+    height:1200px;
+}
+
+#leftselect {
+    width:100%; display:block; height:1200px;
+}
+
+/*start of image slider stuff*/
+.slider-wrapper { 
+    width: 80%; 
+    margin: 5px auto;
+}
+
+#image-slider  {
+    display:block;
+    padding-top:5px;
+}
+/*end of image slider stuff*/ 
+
+.anchorList {
+    text-decoration:none;color:black;
+}
+
+.anchorList:hover {
+    text-decoration:none;color:blue;font-size:1em;
+}
+
+.itemArticleBlocks {
+    padding-bottom:10px; 
+}
+
+.itemTitle  {
+    text-decoration:none;line-height:130%;font-size:1.1em;color:maroon;
+}
+
+/*
+.itemTitle:hover {
+    text-decoration:none;color:blue;font-size:1em;
+}
+*/
+
+.itemBody {
+    text-decoration:none;color:grey;font-size:85%;display:none;
+}
+
+.itemMsg {
+    text-decoration:none;color:green;font-size:100%;display:none;
+}
+
+.msgBody {
+    cursor:auto;color:green;
+}
+
+.msgBody:hover {
+    cursor:pointer;
+}
+
+.msgBodyNoSelect {
+    color:green;
+}
+
+.lheader {
+    list-style-type:none;padding-left:0;margin-left:0;
+}
+
+.bodyFont {
+    font-family:'OFL Sorts Mill Goudy TT','PT Sans', Helvetica, sans-serif;
+}
+
+.curveBox {
+    border:2px solid;
+    border-radius:25px;
+    padding: 30px;
+    height:335px;
+    border-color:#E8E8E8;
+}
+
+.divFabricDisplay {
+    float:left; 
+    height:200px;
+    padding:5px 10px; 
+    margins:auto;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.imgFabricDisplay {
+    width:140px;
+    height:140px;
+    cursor: pointer;
+}
+
+.imgWalletDisplay {
+    height:50px;
+    cursor: pointer;
+}
