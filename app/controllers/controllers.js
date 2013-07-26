@@ -22,6 +22,9 @@ controllers.walletController = function ($scope, $http, $location, cultivatedmoo
         $scope.fabrics = walletService.getFabrics();
         $scope.wallets = walletService.getWallets();
 
+        var walletsImageStr = walletService.createWalletImageSelectStr();
+        $("#walletimageselect").html(walletsImageStr);
+
         $('[name="walletimage"]').click(function() {
              var newImageSrc = walletService.getWalletImageSrc(this.id);
              $("#walletdisplay").attr("src", newImageSrc);

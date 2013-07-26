@@ -17,23 +17,7 @@
 </center>
 </div> <!-- end of span12 -->
 </div> <!-- end of row -->
-<div class="row-fluid" style="padding-top:20px;">
-<center>
-<div class="span4">
-<!-- could not get angular to do this <img name="walletimage" class="imgWalletDisplay" id="{{wallet.id}}" src="{{wallet.imageLargeSrc}}"> 
-<div style="padding-top:10px;"><span style="font-size:10px;" >{{wallet.text}}</span></div> -->
-<img name="walletimage" class="imgWalletDisplay" id="smallwallet" src="img/SmallQuiltedWalletSingle.png"> 
-<div style="padding-top:10px;"><span style="font-size:10px;" >Small Wallet</span></div>
-</div> <!-- end of span4 -->
-<div class="span4">
-<img name="walletimage" class="imgWalletDisplay" id="mediumwallet" src="img/MediumQuiltedWalletSingle.png"> 
-<div style="padding-top:10px;"><span style="font-size:10px;" >Medium Wallet</span></div>
-</div> <!-- end of span4 -->
-<div class="span4">
-<img name="walletimage" class="imgWalletDisplay" id="largewallet" src="img/LargeQuiltedWalletSingle.png"> 
-<div style="padding-top:10px;"><span style="font-size:10px;" >Large Wallet</span></div>
-</div> <!-- end of span4 -->
-</center>
+<div id="walletimageselect" class="row-fluid" style="padding-top:20px;">
 </div> <!-- end of row -->
 </div> <!-- end of span5 -->
 </div> <!-- end of outlinewallets -->
