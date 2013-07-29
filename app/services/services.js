@@ -1,4 +1,4 @@
-﻿cultivatedmooseApp.service('walletService', function () {
+﻿cultivatedmooseApp.service('productService', function () {
 
     this.getFabrics = function () {
         return fabrics;
@@ -20,7 +20,7 @@
 
     this.getWalletItem = function (id) {
         for (var i = 0; i < wallets.length; i++) {
-            if (wallets[i].id == id) {
+            if (wallets[i].value == id) {
                 return wallets[i];
             }
         }
@@ -75,13 +75,24 @@
         return walletImageStr;
     }
 
+    this.pad = function pad (str, max) {
+      return str.length < max ? pad("0" + str, max) : str;
+    }
+
+    this.createSKU = function (product, color, size) {
+        var sku = this.pad(product.toString(),3)+"-"+this.pad(color.toString(),2)+"-"+this.pad(size.toString(),2);
+
+        return sku;
+    }
+
+
     var wallets = [
         {
             id: "smallwallet",
             text: "Small Wallet",
             value: 1,
             cost: 30.00,
-            stringValue: "$30.00",
+            stringCost: "$30.00",
             imageLargeSrc: "img/SmallQuiltedWalletSingle.png"
         },
         {
@@ -89,7 +100,7 @@
             text: "Medium Wallet",
             value: 2,
             cost: 40.00,
-            stringValue: "$40.00",
+            stringCost: "$40.00",
             imageLargeSrc: "img/MediumQuiltedWalletSingle.png"
         },
         {
@@ -97,7 +108,7 @@
             text: "Large Wallet",
             value: 3,            
             cost: 50.00,
-            stringValue: "$50.00",
+            stringCost: "$50.00",
             imageLargeSrc: "img/LargeQuiltedWalletSingle.png"
         }
     ];

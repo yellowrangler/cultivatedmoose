@@ -1,32 +1,53 @@
 // define controllers for app
 var controllers = {};
-controllers.cultivatedmooseController = function ($scope, $http, $location, cultivatedmooseApp) {
+controllers.cultivatedmooseController = function ($scope, $http, $location, cultivatedmooseApp, shoppingcartService) {
 
     init();
     function init() {
-    	
+    	$scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+        if ($scope.itemsinshoppingcart > 0)
+        {
+            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            $("#shoppingcartitems").html(str);
+        }
+        else
+        {
+            $("#shoppingcartitems").html("");
+        }
 	};
 }
 
-controllers.walletController = function ($scope, $http, $location, cultivatedmooseApp, walletService) {
+controllers.productController = function ($scope, $http, $location, cultivatedmooseApp, productService, shoppingcartService) {
 
     init();
     function init() {
+        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+        if ($scope.itemsinshoppingcart > 0)
+        {
+            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            $("#shoppingcartitems").html(str);
+        }
+        else
+        {
+            $("#shoppingcartitems").html("");
+        }
+               
+
         $( "#walletqty" ).spinner({
             stop: function( event, ui ) {
-                var costStr = walletService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
+                var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
                 $("#walletcost").html(costStr);   
             }
         });
 
-        $scope.fabrics = walletService.getFabrics();
-        $scope.wallets = walletService.getWallets();
+        $scope.fabrics = productService.getFabrics();
+        $scope.wallets = productService.getWallets();
 
-        var walletsImageStr = walletService.createWalletImageSelectStr();
+        var walletsImageStr = productService.createWalletImageSelectStr();
         $("#walletimageselect").html(walletsImageStr);
 
         $('[name="walletimage"]').click(function() {
-             var newImageSrc = walletService.getWalletImageSrc(this.id);
+             var newImageSrc = productService.getWalletImageSrc(this.id);
              $("#walletdisplay").attr("src", newImageSrc);
         });
 
@@ -40,12 +61,15 @@ controllers.walletController = function ($scope, $http, $location, cultivatedmoo
         });
 
         $("#walletsize").change(function () {
-            var costStr = walletService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
+            var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
             $("#walletcost").html(costStr);   
+
+            var newImageSrc = productService.getWalletImageSrc($("#walletsize").val());
+             $("#walletdisplay").attr("src", newImageSrc);
         });
 
         $("#walletqty").change(function () {
-            var costStr = walletService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
+            var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
             $("#walletcost").html(costStr);   
         });
 
@@ -54,22 +78,37 @@ controllers.walletController = function ($scope, $http, $location, cultivatedmoo
 
     $scope.addToCart = function() {
         var i = 0;
+        var product = 1;
 
         var ddData = $('#fabriclist').data('ddslick');
         var walletfabricid = ddData.selectedData ? ddData.selectedData.value : "";
-        // var walletfabricid = ddData.selectedData.value;
-         // var ddData = $('#demoShowSelected').data('ddslick');
-        var walletsize = $("#walletsize").val();
+        var walletsize = $("#walletsize").val() *1;
         var walletqty = $("#walletqty").val();
 
-        alert("the fabricid = "+walletfabricid+"\nthe size is "+walletsize+"\nthe qty = "+walletqty)
+        var sku = productService.createSKU(product, walletfabricid, walletsize);
+
+        var walletsizedetail = productService.getWalletItem(walletsize);
+        var walletcolordetail = productService.getWalletFabricItem(walletfabricid);
+        var wallettotalcost = productService.calculateItemCost(walletsize,walletqty);
+        var walletitem = "Quilted Wallet";
+
+        var msg = shoppingcartService.addToShoppingCart(sku, walletitem, walletsizedetail.text, walletsizedetail.stringCost, walletcolordetail.description, walletcolordetail.imageSrc, walletqty, wallettotalcost);
+
+        if (msg != "")
+        {
+            alert(msg);
+        }
+        else
+        {
+            $location.path("/shoppingcart");
+        }
 
     }
 
     $scope.showModalDialog = function (item) {
         if (item == 'fabric')
         {
-            var fabricModalStr = walletService.createFabricModalStr();
+            var fabricModalStr = productService.createFabricModalStr();
             $("#dialogfabric").html(fabricModalStr);
 
             $( "#dialogfabric" ).dialog({
@@ -90,19 +129,57 @@ controllers.walletController = function ($scope, $http, $location, cultivatedmoo
 
 }
 
-controllers.cartController = function ($scope, $http, $location, $window, $anchorScroll) {
+controllers.shoppingCartController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
 
     init();
     function init() {
+        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+        if ($scope.itemsinshoppingcart > 0)
+        {
+            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            $("#shoppingcartitems").html(str);
+        }
+        else
+        {
+            $("#shoppingcartitems").html("");
+        }
+
+        $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
+        $scope.shoppingcarttotalcostStr = shoppingcartService.getShoppingCartTotalCostStr();
     	
 	};
+
+    $scope.deleteShoppingcartItem = function (sku) {
+
+        shoppingcartService.removeFromShoppingCart(sku);
+        // $location.path("/shoppingcart");
+        $route.reload();
+    }
 }
 
-controllers.purchaseController = function ($scope, $http, $location, cultivatedmooseApp) {
+controllers.purchaseController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
 
     init();
-    function init() {
+    function init() {     
+        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+        if ($scope.itemsinshoppingcart > 0)
+        {
+            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            $("#shoppingcartitems").html(str);
+        }
+        else
+        {
+            $("#shoppingcartitems").html("");
+        }
 
+        var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();
+        $scope.purchasetotal = "$ "+merchindisecost.toFixed(2);
+
+        var shippingcost = shoppingcartService.getShoppingCartShippingCostNbr();
+        $scope.shippingcost = "$ "+shippingcost.toFixed(2);
+
+        var grandtotalcost = merchindisecost + shippingcost;
+        $scope.paymentrequired = "$ "+grandtotalcost.toFixed(2);
 	} // end of init
 }
 

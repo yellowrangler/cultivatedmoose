@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="cultivatedmooseApp">
 <head>
-<title>The Cultivated Moose</title>
-<meta name="description" content="The Cultivated Moose">
+<title>Mad Moose Creations</title>
+<meta name="description" content="Mad Moose Creations">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="layout" content="website"/>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT|PT+Sans" type="text/css">
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet" /> -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="css/cultivatedmoose.css" rel="stylesheet" />
 </head>
 
-<body>
-<div class="container">
-<div class="navbar navbar-fixed-top">
+<body style="padding-left:45px;padding-right:45px;background:white;" >
+
+<div style="background:white" class="navbar">
     <div class="navbar-inner">
-        <a class="brand " href="#/">
-            <img style="padding-left:50px;height:75px;" src="img/cultivatedmoose.png" alt="logo"> <span id="ywTitle" class="bodyFont" style="padding-left:45px;letter-spacing:12px;font-size:35px;" >The Cultivated Moose</span>
-        </a>
-    </div> <!-- end of inner -->
-</div> <!-- end of fixed top -->
-</div> <!-- end of container -->
+        <a class="navbar-brand" style="text-decoration:none;" href="#/"><img style="padding-left:10px;height:75px;" src="img/cultivatedmoose.png" alt="logo"></a>
+        <ul class="nav navbar-nav" style="padding-top:45px;">
+            <li><span id="cmtitle" class="bodyFont" style="padding-left:45px;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span></li>
+        </ul>
+        <div id="shoppingcartitems" style="float:right;padding-top:35px;"></div>
+    </div><!-- end of navbar-inner -->
+</div><!-- end of navbar -->
 
-<div style="background:#F8F8F8;" data-ng-view=""></div>
+<div style="background:white;" data-ng-view=""></div>
 
-<div id="footer">
-    <div class="navbar navbar-fixed-bottom">
-        <div class="navbar-inner">
-            <div class="container">
-                <footer>
-                    <div style="padding:15px;" class="row">
-                        <div class="span4">
-                            <strong><span style="color:blue">About Myself</span></strong>
-                        </div>
-                        <div class="offset3 span4">
-                            <strong>Twitter: <a href="http://twitter.com/cultivatedmoose">@cultivatedmoose</a></strong>
-                        </div>
-                    </div>
-               </footer>
-            </div>
-        </div>
+<div style="background:#F8F8F8;"  class="container">
+<div style="height:75px;" class="row">
+    <div style="padding-top:30px;padding-left:75px;" class="col-lg-5">
+        <strong><span style="color:blue;">About Myself</span></strong>
+    </div>
+    <div style="padding-top:30px;" class="col-offset-4 col-lg-3">
+        <strong>Twitter: <a style="color:blue;padding-top:30px;text-decoration:none;" href="http://twitter.com/cultivatedmoose">@cultivatedmoose</a></strong>
     </div>
 </div>
+</div> <!-- end of container -->
 
 <!-- Vendor Libs -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
@@ -54,16 +44,19 @@
 <!-- UI Libs -->
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
-<!-- <script src="Scripts/bootstrap.min.js"></script> -->
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="Scripts/ui-bootstrap-tpls-0.4.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 <script src="Scripts/jquery.ddslick.min.js"></script>
+
+<!-- App classes -->
+<!-- <script src="app/class/productclass.js"></script> -->
 
 <!-- App libs -->
 <script src="app/cultivatedmooseApp.js"></script>
 <script src="app/controllers/controllers.js"></script>
 <script src="app/factories/factories.js"></script>
-<script src="app/services/walletservice.js"></script>
+<script src="app/services/productservice.js"></script>
+<script src="app/services/shoppingcartservice.js"></script>
+<!-- <script src="app/directives/directives.js"></script> -->
 
 <script src="Scripts/cultivatedmoose.js"></script>
 

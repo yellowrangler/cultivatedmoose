@@ -1,4 +1,4 @@
-var cultivatedmooseApp = angular.module ('cultivatedmooseApp', ['ui.bootstrap']);
+var cultivatedmooseApp = angular.module ('cultivatedmooseApp', []);
 
 
 // define routes for app
@@ -11,12 +11,12 @@ cultivatedmooseApp.config(function ($routeProvider) {
             })
         .when('/wallets',
             {
-                controller: 'walletController',
+                controller: 'productController',
                 templateUrl: 'app/partials/wallets.php'
             })
         .when('/canvas',
             {
-                controller: 'cultivatedmooseController',
+                controller: 'productController',
                 templateUrl: 'app/partials/canvas.php'
             })
         .when('/aboutus',
@@ -24,16 +24,11 @@ cultivatedmooseApp.config(function ($routeProvider) {
                 controller: 'cultivatedmooseController',
                 templateUrl: 'app/partials/aboutus.php'
             })
-        .when('/addtocart',
+        .when('/shoppingcart',
             {
-                controller: 'cartController',
-                templateUrl: 'app/partials/cart.php'
-            })        
-        .when('/deletefromcart',
-            {
-                controller: 'cartController',
-                templateUrl: 'app/partials/cart.php'
-            })        
+                controller: 'shoppingCartController',
+                templateUrl: 'app/partials/shoppingcart.php'
+            })            
         .when('/checkout',
             {
                 controller: 'purchaseController',
@@ -49,11 +44,6 @@ cultivatedmooseApp.config(function ($routeProvider) {
                 controller: 'purchaseController',
                 templateUrl: 'app/partials/payment.php'
             })   
-        .when('/executepaymant',
-            {
-                controller: 'purchaseController',
-                templateUrl: 'app/partials/executepaymant.php'
-            })  
         .when('/confirmation',
             {
                 controller: 'purchaseController',
