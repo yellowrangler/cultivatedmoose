@@ -92,7 +92,7 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         var wallettotalcost = productService.calculateItemCost(walletsize,walletqty);
         var walletitem = "Quilted Wallet";
 
-        var msg = shoppingcartService.addToShoppingCart(sku, walletitem, walletsizedetail.text, walletsizedetail.stringCost, walletcolordetail.description, walletcolordetail.imageSrc, walletqty, wallettotalcost);
+        var msg = shoppingcartService.addToShoppingCart(sku, walletitem, walletsizedetail.text, walletsizedetail.stringCost, walletcolordetail.description, walletcolordetail.imageSrc, walletcolordetail.imageLargeSrc, walletqty, wallettotalcost);
 
         if (msg != "")
         {
@@ -109,20 +109,21 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         if (item == 'fabric')
         {
             var fabricModalStr = productService.createFabricModalStr();
+
             $("#dialogfabric").html(fabricModalStr);
 
             $( "#dialogfabric" ).dialog({
-                  height: 455,
-                  width:860,
-                  draggable: true,
-                  modal: true
+                height: 455,
+                width:860,
+                draggable: true,
+                modal: true
             });
 
             $('[name="fabricdisplay"]').click(function() {
-                 var strArray = this.id.split("-");
-                 var idx = strArray[1] - 1;
-                 $('#fabriclist').ddslick('select', {index: idx });
-                 $("#dialogfabric").dialog("destroy");
+                var strArray = this.id.split("-");
+                var idx = strArray[1] - 1;
+                $('#fabriclist').ddslick('select', {index: idx });
+                $("#dialogfabric").dialog("destroy");
             });
         }
     };
@@ -150,11 +151,22 @@ controllers.shoppingCartController = function ($scope, $http, $route, $location,
 	};
 
     $scope.deleteShoppingcartItem = function (sku) {
-
         shoppingcartService.removeFromShoppingCart(sku);
-        // $location.path("/shoppingcart");
         $route.reload();
-    }
+    };
+
+    $scope.showModalLargeImageDialog = function (imagename) {
+        var imagestr = "<center><img style='height:300px;width:300px;' src='"+imagename+"'></center>";
+
+        $("#fabricimagelarge").html(imagestr);
+
+        $( "#fabricimagelarge" ).dialog({
+            height: 330,
+            width:330,
+            draggable: true,
+            modal: true
+        });
+    };
 }
 
 controllers.purchaseController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
@@ -166,6 +178,8 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         {
             var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
             $("#shoppingcartitems").html(str);
+
+            $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
         }
         else
         {
@@ -180,6 +194,23 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
 
         var grandtotalcost = merchindisecost + shippingcost;
         $scope.paymentrequired = "$ "+grandtotalcost.toFixed(2);
+
+        $("#cartpayment").click(function () {
+            var serializedData = $("#shipping").serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "app/ajax/customerInvoice.php",
+                data: serializedData,
+                success: function(msg) {
+                    //
+                    // after we save aand validate we send pappal
+                    // whatever it needs
+                    //
+                    alert(msg); 
+                }
+            });
+        });
 	} // end of init
 }
 

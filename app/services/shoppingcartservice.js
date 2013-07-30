@@ -12,11 +12,20 @@
 
     // this.addToShoppingCart = function (newsku, newsizetext, newcostper, newcolortext, newproductimage, newqty, newtotalcost) {
 
-    this.addToShoppingCart = function (newsku, newitem, newsizetext, newcostper, newcolortext, newproductimage, newqty, newtotalcost) {
+    this.addToShoppingCart = function (newsku, newitem, newsizetext, newcostper, newcolortext, newproductimage, newproductimagelarge, newqty, newtotalcost) {
         var msg ="";
 
         var shoppingCart = "[";
-        shoppingCart = shoppingCart + "{\"sku\":\""+newsku+"\",\"item\":\""+newitem+"\",\"size\":\""+newsizetext+"\",\"costper\":\""+newcostper+"\",\"color\":\""+newcolortext+"\",\"imageurl\":\""+newproductimage+"\",\"qty\":\""+newqty+"\",\"totalcost\":\""+newtotalcost+"\"}";
+        shoppingCart = shoppingCart + "{\"sku\":\""+newsku;
+        shoppingCart = shoppingCart+"\",\"item\":\""+newitem;
+        shoppingCart = shoppingCart+"\",\"size\":\""+newsizetext;
+        shoppingCart = shoppingCart+"\",\"costper\":\""+newcostper;
+        shoppingCart = shoppingCart+"\",\"color\":\""+newcolortext;
+        shoppingCart = shoppingCart+"\",\"imageurl\":\""+newproductimage;
+        shoppingCart = shoppingCart+"\",\"imagelargeurl\":\""+newproductimagelarge;
+        shoppingCart = shoppingCart+"\",\"qty\":\""+newqty;
+        shoppingCart = shoppingCart+"\",\"totalcost\":\""+newtotalcost;
+        shoppingCart = shoppingCart+"\"}";
 
         var storagecartLocalstoreItems = this.retreiveShoppingCartItems();
         if (storagecartLocalstoreItems != ""  && storagecartLocalstoreItems != null)
@@ -27,8 +36,16 @@
                 if (this.sku != newsku)
                 {
                     shoppingCart = shoppingCart + ",";
-                    shoppingCart = shoppingCart + "{\"sku\":\""+this.sku+"\",\"item\":\""+this.item+"\",\"size\":\""+this.size+"\",\"costper\":\""+this.costper+"\",\"color\":\""+this.color+"\",\"imageurl\":\""+this.imageurl+"\",\"qty\":\""+this.qty+"\",\"totalcost\":\""+this.totalcost+"\"}";
-                    // shoppingCart = shoppingCart + "{\"sku\":\""+this.sku+"\",\"qty\":\""+this.qty+"\"}";
+                    shoppingCart = shoppingCart + "{\"sku\":\""+this.sku;
+                    shoppingCart = shoppingCart+"\",\"item\":\""+this.item;
+                    shoppingCart = shoppingCart+"\",\"size\":\""+this.size;
+                    shoppingCart = shoppingCart+"\",\"costper\":\""+this.costper;
+                    shoppingCart = shoppingCart+"\",\"color\":\""+this.color;
+                    shoppingCart = shoppingCart+"\",\"imageurl\":\""+this.imageurl;
+                    shoppingCart = shoppingCart+"\",\"imagelargeurl\":\""+this.imagelargeurl;
+                    shoppingCart = shoppingCart+"\",\"qty\":\""+this.qty;
+                    shoppingCart = shoppingCart+"\",\"totalcost\":\""+this.totalcost;
+                    shoppingCart = shoppingCart+"\"}";
                 }
             });
         }
@@ -57,7 +74,17 @@
                     if (count > 0)
                         shoppingCart = shoppingCart + ",";
 
-                    shoppingCart = shoppingCart + "{\"sku\":\""+this.sku+"\",\"item\":\""+this.item+"\",\"size\":\""+this.size+"\",\"costper\":\""+this.costper+"\",\"color\":\""+this.color+"\",\"imageurl\":\""+this.imageurl+"\",\"qty\":\""+this.qty+"\",\"totalcost\":\""+this.totalcost+"\"}";
+                    shoppingCart = shoppingCart + "{\"sku\":\""+this.sku;
+                    shoppingCart = shoppingCart+"\",\"item\":\""+this.item;
+                    shoppingCart = shoppingCart+"\",\"size\":\""+this.size;
+                    shoppingCart = shoppingCart+"\",\"costper\":\""+this.costper;
+                    shoppingCart = shoppingCart+"\",\"color\":\""+this.color;
+                    shoppingCart = shoppingCart+"\",\"imageurl\":\""+this.imageurl;
+                    shoppingCart = shoppingCart+"\",\"imagelargeurl\":\""+this.imagelargeurl;
+                    shoppingCart = shoppingCart+"\",\"qty\":\""+this.qty;
+                    shoppingCart = shoppingCart+"\",\"totalcost\":\""+this.totalcost;
+                    shoppingCart = shoppingCart+"\"}";
+                    
                     count = count + 1;
                 }
             });

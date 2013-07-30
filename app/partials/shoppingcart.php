@@ -20,7 +20,7 @@
 </div><!-- end of row -->
 
 <div class="row" id="{{shoppingCartItem.sku}}" style="padding-top:15px;" data-ng-repeat="shoppingCartItem in shoppingCartItems" >
-	<div class="col-lg-2"><img style="height:40px;width:40px;" data-ng-src="{{shoppingCartItem.imageurl}}"></div>
+	<div class="col-lg-2"><img data-ng-click="showModalLargeImageDialog(shoppingCartItem.imagelargeurl)" style="cursor:pointer;height:40px;width:40px;" data-ng-src="{{shoppingCartItem.imageurl}}"></div>
 	<div class="col-lg-2">
 		{{shoppingCartItem.item}}
 		<br />
@@ -46,3 +46,4 @@
 <div style="padding-bottom:40px;"></div>
 
 <!-- dialog code here -->
+<div id="fabricimagelarge" title="Fabric Image"></div>

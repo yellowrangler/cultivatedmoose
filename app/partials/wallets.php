@@ -84,8 +84,7 @@
 </div> <!-- end of row -->
 </div> <!-- end of container -->
 
-<div style="padding-bottom:6200px;"></div>
+<div style="padding-bottom:40px;"></div>
 
 <!-- dialog code here -->
-<div id="dialogfabric" title="Fabric Chart"></div>
-
+<div id="dialogfabric" title="Fabric Chart" style="display:none;"></div>

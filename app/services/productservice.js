@@ -48,7 +48,10 @@
     this.createFabricModalStr = function () {
         var fabricStr = "";
         $.each(fabrics, function() {
-            fabricStr = fabricStr +"<div class='divFabricDisplay'><img id=img-"+this.value+" name='fabricdisplay' class='imgFabricDisplay' src="+this.imageLargeSrc+"><br /><center><div style='width:130px;word-wrap:break-word;'>"+this.description+"</div></center></div>";
+            fabricStr = fabricStr +"<div class='divFabricDisplay'><img id=img-"+this.value;
+            fabricStr = fabricStr +" name='fabricdisplay' class='imgFabricDisplay' src="+this.imageLargeSrc;
+            fabricStr = fabricStr +"><br /><center><div style='width:130px;word-wrap:break-word;'>"+this.description;
+            fabricStr = fabricStr +"</div></center></div>";
         });
 
         return fabricStr;
