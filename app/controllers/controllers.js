@@ -7,7 +7,7 @@ controllers.cultivatedmooseController = function ($scope, $http, $location, cult
     	$scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
         if ($scope.itemsinshoppingcart > 0)
         {
-            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
             $("#shoppingcartitems").html(str);
         }
         else
@@ -24,7 +24,7 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
         if ($scope.itemsinshoppingcart > 0)
         {
-            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
             $("#shoppingcartitems").html(str);
         }
         else
@@ -137,7 +137,7 @@ controllers.shoppingCartController = function ($scope, $http, $route, $location,
         $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
         if ($scope.itemsinshoppingcart > 0)
         {
-            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
             $("#shoppingcartitems").html(str);
         }
         else
@@ -176,7 +176,7 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
         if ($scope.itemsinshoppingcart > 0)
         {
-            var str = "<a style='text-decoration:none;color:green;font-size:10px;' href='#/shoppingcart'>Shopping Cart Items "+$scope.itemsinshoppingcart+"</a>";
+            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
             $("#shoppingcartitems").html(str);
 
             $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
