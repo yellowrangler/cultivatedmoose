@@ -11,12 +11,12 @@
 </div> <!-- end of row -->
 
 <div class="row" style="padding-top:15px;">
-	<div class="col-lg-2">Image</div>
-	<div class="col-lg-2">Item</div>
-	<div class="col-lg-2">Color</div>
-	<div class="col-lg-2">Size</div>
-	<div class="col-lg-2">Quantity</div>
-	<div class="col-lg-2">Cost</div>
+	<div class="col-lg-2"><strong>Image</strong></div>
+	<div class="col-lg-2"><strong>Item</strong></div>
+	<div class="col-lg-2"><strong>Color</strong></div>
+	<div class="col-lg-2"><strong>Size</strong></div>
+	<div class="col-lg-2"><strong>Quantity</strong></div>
+	<div class="col-lg-2"><strong>Cost</strong></div>
 </div><!-- end of row -->
 
 <div class="row" id="{{shoppingCartItem.sku}}" style="padding-top:15px;" data-ng-repeat="shoppingCartItem in shoppingCartItems" >

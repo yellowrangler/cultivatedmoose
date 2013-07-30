@@ -113,10 +113,15 @@
     }
 
     this.numberOfShoppingCartItems = function () {
-        var storagecartitemsStr = localStorage.getItem("cultivatedmoose");
-        var shoppingcartitems = JSON.parse(storagecartitemsStr);
-
-        return shoppingcartitems.length;
+        var cartitems = 0;
+        var storagecartLocalstoreItems = localStorage.getItem("cultivatedmoose");
+        if (storagecartLocalstoreItems != ""  && storagecartLocalstoreItems != null)
+        {
+            var shoppingcartitems = JSON.parse(storagecartLocalstoreItems);
+            cartitems = shoppingcartitems.length;
+        }
+            
+        return cartitems;
     }
 
 });
