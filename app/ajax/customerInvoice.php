@@ -53,7 +53,22 @@ $order["paymentrequired"] = $_POST["paymentrequired"];
 //
 
 
+//
+// write email
+//
 
+// $to = "tarrant.cutler@gmail.com";
+// $subject = "Test for PHP send mail";
+// $body = "Hi,\n\nThis is a test.";
+
+//  if (mail($to, $subject, $body)) 
+//  {
+//    echo("<p>Message successfully sent!</p>");
+// } 
+// else 
+// {
+//    echo("<p>Message delivery failed...</p>");
+// }
 
 
 

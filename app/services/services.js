@@ -64,10 +64,10 @@
     this.createWalletImageSelectStr = function () {
         var walletImageStr = "<center>";
         $.each(wallets, function() {
-            walletImageStr = walletImageStr +"<div class='span4'>";
+            walletImageStr = walletImageStr +"<div class='col-span-4'>";
             walletImageStr = walletImageStr +"<img name='walletimage' class='imgWalletDisplay' id='"+this.id+"' src='"+this.imageLargeSrc+"'> ";
             walletImageStr = walletImageStr +"<div style='padding-top:10px;'><span style='font-size:10px;' >"+this.text+"</span></div>";
-            walletImageStr = walletImageStr +"</div> <!-- end of span4 -->";
+            walletImageStr = walletImageStr +"</div> <!-- end of col-span-4 -->";
         });
 
         walletImageStr = walletImageStr + "</center>";

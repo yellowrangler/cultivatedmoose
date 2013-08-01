@@ -1,138 +1,50 @@
-<style type="text/css">
-.section-article p {
-    width:90%;
-}
-
-.imgpointer:hover {
-    cursor:pointer;
-}
-</style>
-
-<div class="row" style="padding-left:75px;padding-top:135px;" >
-<div class="span12">
-<h2>SendPicCip IOS iPhone Aplication</h2>
-
-<div style="position:relative;display:block;padding-top:20px;">
-<p>I wrote SendPicClick originally for my own use. I like to walk, and as I do, I find that there are various images 
-I would like to share with friends and family. I didn't want to use some uber-broadcasting medium like Facebook, so I 
-created this app.</p>
-<p>The app works quite simply. You select the </p>
-<img height="60" src="img/sendpicclipicon.png">
-</div>
-</div> <!-- end of span12 -->
+<div class="container">
+<div class="row" style="padding-top:10px;" >
+<div class="col-lg-12">
+<div class="section-article">
+<h2 class="bodyFont">Mad Moose Creator and Owner</h2>
+</div> <!-- end of section-article -->
+</div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->
 
-<div style="padding-left:75px;padding-top:20px;" class="row">
-<div class="span4">
-and are presented with the  following screen:
-<img align="middle" style="padding-left:70px;padding-top:25px;height:250px;" id="start" class="imgpointer" src="img/sendpicclipstart.png">
-</div> <!-- end of span4 -->
+<div class="row" style="padding-top:20px;">
+<div class="col-lg-5">
+<center><img id="msmadmoose" src="img/LisaSewing.png"></center>
+</div> <!-- end of span5 -->
 
-<div class="span8" style="font-size:18px;">
-From this menu you can do the following:
-<ul style="padding-top:25px;">
-<li style="padding:5px;"><a data-ng-click="goToInternalHash('takepicture', 115)" style="cursor:pointer;text-decoration:none;">Take a Picture</a></li>
-<li style="padding:5px;"><a data-ng-click="goToInternalHash('takevideo', 115)" style="cursor:pointer;text-decoration:none;">Take a Video</a></li>
-<li style="padding:5px;"><a data-ng-click="goToInternalHash('selectcontacts', 115)" style="cursor:pointer;text-decoration:none;">Select Contacts</a></li>
-<li style="padding:5px;"><a data-ng-click="goToInternalHash('viewcontacts', 115)" style="cursor:pointer;text-decoration:none;">View Selected Contacts</a></li>
-<li style="padding:5px;"><a data-ng-click="goToInternalHash('clearcontacts', 115)" style="cursor:pointer;text-decoration:none;">Clear Selected Contacts</a></li>
-</ul>
-</div><!-- end of span8 -->
-</div> <!-- end of div row -->
+<div class="col-lg-7">
+<div style="height:250px;">
+<p>My husband and I moved to the North Country some number of years ago from the Newburyport, MA area where I worked for Hood Canvas, sewing boat tops and cushions.</p>
+<p>I have always enjoyed working with various forms of fabric. From knitting and crocheting, to designing and constructing king size custom quilts for family and friends.</p>
+<p>My inspiration has come from my desire to create beutiful things and the encouragement of family members.</p>
+<p>These products are all designed and hand sewn from quality materials by myself in Northern New Hampshire.</p>
+<p>I hope you enjoy these hand sewn articles as much as I enjoy making them.</p>
+</div> <!-- end div-->
+</div> <!-- end of col-lg-7-->
+</div> <!-- end of row -->
 
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-<h3 id="takepicture">Take a Picture</h3>
-You can not take a picture until you have selected one or more contacts from your contact list.
- Once you have done this just point the iPhone and select the <span style="color:maroon;font-weight:bold;">Take Picture</span> button. You will be presented 
- with the iPhone camera interface. Take your picture and an email will come up with the picture attached
- and you contacts filled in. You may add people, change the subject - all the same functionality as if 
- you created the email from your email app. When you are finished select Send and the email with your 
-picture will be on its way.
-</div>
-</div> <!-- end of span11 -->
-</div> <!-- end of div row -->
-
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-<h3 id="takevideo">Take a Video</h3>
-You can not take a video until you have selected one or more contacts from your contact list.
- Once you have done this just point the iPhone and select the <span style="color:maroon;font-weight:bold;">Take Video</span> button. You will be presented 
- with the iPhone video camera interface. Take your video and when finished an email will come up with the video attached
- and you contacts filled in. You may add people, change the subject - all the same functionality as if 
- you created the email from your email app. When you are finished select Send and the email with your 
-video will be on its way.
-</div>
-</div> <!-- end of span11 -->
-</div> <!-- end of div row --> 
-
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-<h3 id="selectcontacts">Select Contacts</h3>
-The select contacts function brings up a list of all the contacts in your iPhone Contacts app. The contacts list will appear 
-as follows:
-</div> <!-- end of span11 -->
-</div> <!-- end of div row -->
-
-<div style="padding-left:75px;padding-top:25px;" class="row">
-<div class="span3">
-<img align="middle" style="padding-left:70px;padding-top:5px;height:250px;" id="sclist" class="imgpointer" src="img/contactslist.png">
-</div> <!-- end of span3-->
-
-<div class="span6">
-This list will have check boxes next to all you contact names. Checking on any check box immeadeatly includes that 
-conatct in your list. Un checking the check box removes that contact form your list. 
-<br /><br />The contacts are listed in email 
-alphabetical order. You can also search for a contact from the search box at the top of the form. You can return to the 
-main page by hitting the back button or swiping right.
+<div class="row" style="padding-top:40px;">
+<div class="col-lg-6">
+<div style="height:290px;border-top:solid orange 2px;">
+<div style="color:orange;padding-bottom:15px"><strong>Quilted Wallets</strong></div>
+<p>Somewhere between my copious amounts of left over quilting fabric and my desire to downsize my purse 
+(for those times I didn't need to carry all that stuff); necessity met creativity and the result was a hand quilted wallet a little larger than a dollar bill.</p>
+<p>The size made it easy to slip into a coat or pants pocket.  It contained 8 slots for credit cards, licenses or 
+other card shaped items; a zipper compartment for keys, change and any other small items that might need corralling and a pocket for money, receipts, or checks.</p>
+<p>The wallet was an instant succes with family and friends and so I now make them available to you.</p>
+</div> <!-- end of div -->
 </div> <!-- end of span6 -->
-</div> <!-- end of div row -->
 
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-<h3 id="viewcontacts">View Selected Contacts</h3>
-The view selected contacts function brings up a list of all the contacts that you have currently selected. The selected contacts list will appear 
-as follows:
-</div> <!-- end of span11 -->
-</div> <!-- end of div row --> 
-
-<div style="padding-left:75px;padding-top:25px;" class="row">
-<div class="span3">
-<img style="padding-left:70px;padding-top:5px;height:250px;" id="vclist" class="imgpointer" src="img/viewselected.png">
-</div> <!-- end of span3-->
-
-<div class="span6">
-You can un select any contacts that are currently checked. But you can not add any.
-<br /><br />
-You can return to the 
-main page by hitting the back button or swiping right.
+<div class="col-lg-6">
+<div style="height:290px;border-top:solid brown 2px;">
+<div style="color:brown;padding-bottom:15px"><strong>Canvas Bags</strong></div>
+<p>My canvas work started with Hood Canvas, but retired with the raising of my two fine children (Who are now happy and on their own thank you).</p>
+<p>Then some time ago my brother-in-law asked me to make a white canvas duffle bag for him with heavy dutty zippers. He owns a yellow jeep wrangler so I added yellow straps (a pair along the zipper opening and one on either end of the bag).
+It came out very well and he was thrilled. <p>The bags are heavy duty canvas and can take a fair amount of use.</p>
+</div> <!-- end of panel -->
 </div> <!-- end of span6 -->
-</div> <!-- end of div row -->
+</div> <!-- end of row -->
 
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-<h3 id="clearcontacts">Clear Selected Contacts</h3>
-The clear selected contacts function removes all previously selected contacts from your list. When selected, the 
-<span style="color:maroon;font-weight:bold;">Clear Selected Contacts</span> will show the following dialog:
-</div> <!-- end of span11 -->
-</div> <!-- end of div row --> 
+</div> <!-- end of body -->
 
-<div style="padding-left:75px;padding-top:25px;" class="row">
-<div class="span3">
-<img style="padding-left:70px;padding-top:5px;height:250px;" id="cclist" class="imgpointer" src="img/clearcontacts.png">
-</div> <!-- end of span3 -->
-
-<div class="span6">
-After selecting this option, you will need to go back and create a new select contacts list before taking taking pictures or videos.
-</div> <!-- end of span6 -->
-</div> <!-- end of div row -->
-
-<div style="padding-left:75px;padding-top:35px;" class="row">
-<div class="span11">
-I hope you enjoy using this as much as I do. Please feel free to contact me with any ideas or other useful comments at <a href="mailto:yellowrangler.me@gmail.com?Subject=SendPicClip%20Commnets">Yellowrangler</a>
-</div> <!-- end of span11 -->
-</div> <!-- end of div row -->
-
-<div style="padding-bottom:75px;">&nbsp;</div>
-
-<script src="Scripts/sendpicclip.js"></script>
+<div style="padding-bottom:35px;">&nbsp;</div>

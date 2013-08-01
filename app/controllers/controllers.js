@@ -195,6 +195,12 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         var grandtotalcost = merchindisecost + shippingcost;
         $scope.paymentrequired = "$ "+grandtotalcost.toFixed(2);
 
+        var paypalcost = grandtotalcost.toFixed(2);
+        $("#paypalamount").val(paypalcost);
+
+        var paypalitemname = "Mad Moose Items";
+        $("#paypalaitemname").val(paypalitemname);
+
         $("#cartpayment").click(function () {
             var serializedData = $("#shipping").serialize();
 
@@ -207,7 +213,9 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
                     // after we save aand validate we send pappal
                     // whatever it needs
                     //
-                    alert(msg); 
+                    //alert(msg); 
+
+                    $("#paypal").submit();
                 }
             });
         });

@@ -34,16 +34,6 @@ cultivatedmooseApp.config(function ($routeProvider) {
                 controller: 'purchaseController',
                 templateUrl: 'app/partials/checkout.php'
             })
-        .when('/shipping',
-            {
-                controller: 'purchaseController',
-                templateUrl: 'app/partials/shipping.php'
-            })
-        .when('/payment',
-            {
-                controller: 'purchaseController',
-                templateUrl: 'app/partials/payment.php'
-            })   
         .when('/confirmation',
             {
                 controller: 'purchaseController',

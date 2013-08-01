@@ -14,29 +14,36 @@
 </head>
 
 <body style="background:white;" >
+
 <div class="container">
 
-<div style="background:white" class="navbar">
+<div style="background:white">
+        <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
+        <div style="padding-top:35px;">
+            <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span>    
+            <span id="shoppingcartitems" style="float:right;"></span>
+        </div>
+</div>
+
+<!-- <div style="background:white" class="navbar">
     <div class="navbar-inner">
-        <a class="navbar-brand" style="text-decoration:none;" href="#/"><img style="background-color:transparent;padding-left:10px;height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
+        <a class="navbar-brand" style="text-decoration:none;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
         <ul class="nav navbar-nav" style="padding-top:45px;">
             <li><span id="cmtitle" class="bodyFont" style="padding-left:45px;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span></li>
         </ul>
         <div id="shoppingcartitems" style="float:right;padding-top:35px;"></div>
-    </div><!-- end of navbar-inner -->
-</div><!-- end of navbar -->
-
-<div style="background:white;" data-ng-view=""></div>
-
-<div style="background:white;"  class="container">
-<div style="height:75px;" class="row">
-    <div style="padding-top:30px;padding-left:75px;" class="col-lg-5">
-        <strong><span style="color:maroon;">About Myself</span></strong>
     </div>
-    <div style="padding-top:30px;" class="col-offset-4 col-lg-3">
-        <strong>Twitter: <a style="color:maroon;padding-top:30px;text-decoration:none;" href="http://twitter.com/cultivatedmoose">@madmoosecreations</a></strong>
+</div> -->
+
+<div style="background:white;clear:both;" data-ng-view=""></div>
+
+<div style="background:white;height:75px;">
+    <div style="padding-top:30px;padding-left:75px;float:left;">
+        <a href="#/aboutus" style="color:orange;text-decoration:none;"><strong>About Myself</strong></a>
     </div>
-</div>
+    <div style="padding-top:30px;padding-right:35px;float:right;">
+        <strong>Twitter: <a style="color:orange;padding-top:30px;text-decoration:none;" href="http://twitter.com/cultivatedmoose">@madmoosecreations</a></strong>
+    </div>
 </div> <!-- end of container -->
 
 </div> <!-- end of container top -->

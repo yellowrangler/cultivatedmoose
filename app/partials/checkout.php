@@ -113,7 +113,16 @@
 
 <div style="padding-top:75px;padding-bottom:10px;">
 <center>
-	<button id="cartpayment" class="btn btn-info btn-small">Procede to PayPal</button>
+<form id="paypal" name="paypal"  action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="ecutler@lejac.net">
+<input type="hidden" name="item_name" id="paypalaitemname"  value="">
+<input type="hidden" name="return" value="http://turksandcaicos/cultivatedmoose/confirmation:cutomerid=1" >
+<input type="hidden" name="cancel_return" value="http://turksandcaicos/cultivatedmoose/cancel:cutomerid=1" >
+<input type="hidden" name="image_url" value="http://turksandcaicos/cultivatedmoose/img/cultivatedmooseorange-paypal-banner.png" >
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="amount" id="paypalamount" value="">
+<button id="cartpayment" class="btn btn-info btn-small">Procede to PayPal</button>
 </center>	
 </div>
 
