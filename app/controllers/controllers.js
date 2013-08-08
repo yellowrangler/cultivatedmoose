@@ -80,6 +80,10 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         var i = 0;
         var product = 1;
 
+        var err = validateWalletForm();
+        if (err)
+            return false;
+
         var ddData = $('#fabriclist').data('ddslick');
         var walletfabricid = ddData.selectedData ? ddData.selectedData.value : "";
         var walletsize = $("#walletsize").val() *1;
@@ -143,6 +147,7 @@ controllers.shoppingCartController = function ($scope, $http, $route, $location,
         else
         {
             $("#shoppingcartitems").html("");
+            $location.path("/");
         }
 
         $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
@@ -186,6 +191,10 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
             $("#shoppingcartitems").html("");
         }
 
+        // $("#paypal").submit(function (e) {
+        //     e.preventDefault(); 
+        // });
+
         var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();
         $scope.purchasetotal = "$ "+merchindisecost.toFixed(2);
 
@@ -202,24 +211,113 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         $("#paypalaitemname").val(paypalitemname);
 
         $("#cartpayment").click(function () {
+            var err = validateShippingForm();
+            if (err)
+                return false;
+
             var serializedData = $("#shipping").serialize();
 
             $.ajax({
                 type: "POST",
                 url: "app/ajax/customerInvoice.php",
                 data: serializedData,
-                success: function(msg) {
-                    //
+                success: function(msgArray) {
+                    
                     // after we save aand validate we send pappal
                     // whatever it needs
                     //
-                    //alert(msg); 
+                    var msg = JSON.parse(msgArray);
+                    if (msg["status"] == "ok")
+                    {
+                        $("#papalreturn").val("http://turksandcaicos/cultivatedmoose/#/confirmation/"+msg["orderid"]);
+                        $("#customerid").val(msg["customerid"]);
 
-                    $("#paypal").submit();
+                        $("#paypal").submit();
+                    }
+                    else
+                    {
+                        alert(msg["text"]); 
+                    }
+                    
+                    var i = 0;
                 }
             });
+
+            return false
         });
 	} // end of init
+}
+
+controllers.purchaseConfirmationController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
+
+    init();
+    function init() {   
+        //
+        // remove cart items, email all around
+        //
+        var paramArray = window.location.hash.split("/");
+        var orderid = paramArray[2];
+        var orderidStr = "orderid="+orderid;
+        $.ajax({
+                type: "POST",
+                url: "app/ajax/confirmPurchase.php",
+                data: orderidStr,
+                success: function(msgArray) {
+                    
+                    // after we save aand validate we send pappal
+                    // whatever it needs
+                    //
+                    var msg = JSON.parse(msgArray);
+                    if (msg["status"] == "ok")
+                    {
+                        shoppingcartService.removeAllItemsFromShoppingCart();
+                        $("#confiramationmsg").html(msg["html"]);
+                    }
+                    else
+                    {
+                        $("#confiramationmsg").html(msg["html"]);
+                    }
+
+                    $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+                    if ($scope.itemsinshoppingcart > 0)
+                    {
+                        var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
+                        $("#shoppingcartitems").html(str);
+
+                        $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
+                    }
+                    else
+                    {
+                        $("#shoppingcartitems").html("");
+                    }
+                }
+            });
+
+
+        var i = 0;
+    } // end of init
+}
+
+controllers.purchaseCancelController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
+
+    init();
+    function init() {     
+        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
+        if ($scope.itemsinshoppingcart > 0)
+        {
+            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
+            $("#shoppingcartitems").html(str);
+
+            $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
+        }
+        else
+        {
+            $("#shoppingcartitems").html("");
+        }
+
+
+        var i = 0;
+    } // end of init
 }
 
 cultivatedmooseApp.controller(controllers); 

@@ -1,0 +1,11 @@
+2013-08-03 19:32:36 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
+2013-08-03 19:32:36 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
+2013-08-03 19:47:37 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
+2013-08-03 19:47:37 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
+2013-08-03 19:50:27 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
+2013-08-03 19:50:27 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
+2013-08-03 19:52:47 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
+2013-08-03 19:52:47 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
+2013-08-03 19:55:48 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
+2013-08-03 19:55:48 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
+2013-08-03 22:07:01 : DB error: Access denied for user 'madmoose'@'localhost' (using password: YES) - Error mysql connect

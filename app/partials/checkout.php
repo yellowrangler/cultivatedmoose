@@ -16,13 +16,13 @@
     <tr style="height:45px;">
     	<td align="right"><strong>Name</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px" type="text" id="fullname" name="fullname" placeholder="Enter your Full name">
+	    	<input style="width:400px" type="text" id="fullname" name="fullname" placeholder="Enter your Full name" required>
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Address</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address">
+	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
     	</td>
     </tr>
     <tr style="height:45px;">
@@ -34,26 +34,26 @@
     <tr style="height:45px;">
     	<td align="right"><strong>City</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City">
+	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
     	</td>
     </tr>
 	<tr style="height:45px;">
     	<td align="right"><strong>State</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<input style="width:200px;" type="text" id="state" name="state" placeholder="Enter your State">
+	    	<input style="width:200px;" type="text" id="state" name="state" placeholder="Enter your State" required>
     	</td>
 
     	<td style="width:50px;">&nbsp;</td>
 
     	<td align="right"><strong>Zip</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<input style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP">
+	    	<input style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP" required>
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Phone</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="phone" name="phone" placeholder="Enter your phone nbr">
+	    	<input style="width:400px;" type="tel" id="phone" name="phone" placeholder="Enter your phone nbr" required>
     	</td>
     </tr>
     <tr style="height:45px;">
@@ -65,7 +65,7 @@
     <tr style="height:45px;">
     	<td align="right"><strong>eMail</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="email" name="email" placeholder="Enter your eMail address">
+	    	<input style="width:400px;" type="email " id="email" name="email" placeholder="Enter your eMail address" required>
     	</td>
     </tr>
     </table>  
@@ -113,16 +113,18 @@
 
 <div style="padding-top:75px;padding-bottom:10px;">
 <center>
-<form id="paypal" name="paypal"  action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form id="paypal" name="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<!-- <form id="paypal" name="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
 <input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="ecutler@lejac.net">
-<input type="hidden" name="item_name" id="paypalaitemname"  value="">
-<input type="hidden" name="return" value="http://turksandcaicos/cultivatedmoose/confirmation:cutomerid=1" >
-<input type="hidden" name="cancel_return" value="http://turksandcaicos/cultivatedmoose/cancel:cutomerid=1" >
+<input type="hidden" name="business" value="elcutler-facilitator@wildblue.net">
+<input type="hidden" name="item_name" id="paypalaitemname"  value="madmooseitems">
+<input type="hidden" name="item_number" id="customerid"  value="">
+<input type="hidden" name="return" id="papalreturn" value="" >
+<input type="hidden" name="cancel_return" value="http://turksandcaicos/#/cultivatedmoose/cancel" >
 <input type="hidden" name="image_url" value="http://turksandcaicos/cultivatedmoose/img/cultivatedmooseorange-paypal-banner.png" >
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="amount" id="paypalamount" value="">
-<button id="cartpayment" class="btn btn-info btn-small">Procede to PayPal</button>
+<button id="cartpayment" type="button" class="btn btn-info btn-small">Procede to PayPal</button>
 </center>	
 </div>
 

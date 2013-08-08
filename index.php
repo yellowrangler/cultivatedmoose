@@ -18,22 +18,12 @@
 <div class="container">
 
 <div style="background:white">
-        <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
-        <div style="padding-top:35px;">
-            <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span>    
-            <span id="shoppingcartitems" style="float:right;"></span>
-        </div>
-</div>
-
-<!-- <div style="background:white" class="navbar">
-    <div class="navbar-inner">
-        <a class="navbar-brand" style="text-decoration:none;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
-        <ul class="nav navbar-nav" style="padding-top:45px;">
-            <li><span id="cmtitle" class="bodyFont" style="padding-left:45px;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span></li>
-        </ul>
-        <div id="shoppingcartitems" style="float:right;padding-top:35px;"></div>
+    <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
+    <div style="padding-top:35px;">
+        <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span>    
+        <span id="shoppingcartitems" style="float:right;"></span>
     </div>
-</div> -->
+</div>
 
 <div style="background:white;clear:both;" data-ng-view=""></div>
 
@@ -57,16 +47,13 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 <script src="Scripts/jquery.ddslick.min.js"></script>
 
-<!-- App classes -->
-<!-- <script src="app/class/productclass.js"></script> -->
-
 <!-- App libs -->
 <script src="app/cultivatedmooseApp.js"></script>
 <script src="app/controllers/controllers.js"></script>
 <script src="app/factories/factories.js"></script>
 <script src="app/services/productservice.js"></script>
 <script src="app/services/shoppingcartservice.js"></script>
-<!-- <script src="app/directives/directives.js"></script> -->
+<script src="app/validations/validate.js"></script>
 
 <script src="Scripts/cultivatedmoose.js"></script>
 

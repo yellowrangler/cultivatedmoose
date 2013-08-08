@@ -34,10 +34,15 @@ cultivatedmooseApp.config(function ($routeProvider) {
                 controller: 'purchaseController',
                 templateUrl: 'app/partials/checkout.php'
             })
-        .when('/confirmation',
+        .when('/confirmation/:orderid',
             {
-                controller: 'purchaseController',
+                controller: 'purchaseConfirmationController',
                 templateUrl: 'app/partials/confirmation.php'
-            })                       
+            })   
+        .when('/cancel/:orderid',
+            {
+                controller: 'purchaseCancelController',
+                templateUrl: 'app/partials/cancel.php'
+            })                           
         .otherwise({redirectTo: '/' });
 });

@@ -85,33 +85,59 @@
         return sku;
     }
 
-
     var wallets = [
         {
             id: "smallwallet",
             text: "Small Wallet",
             value: 1,
-            cost: 30.00,
-            stringCost: "$30.00",
+            cost: 0.01,
+            stringCost: "$0.01",
             imageLargeSrc: "img/SmallQuiltedWalletSingle.png"
         },
         {
             id: "mediumwallet",
             text: "Medium Wallet",
             value: 2,
-            cost: 40.00,
-            stringCost: "$40.00",
+            cost: 0.01,
+            stringCost: "$0.01",
             imageLargeSrc: "img/MediumQuiltedWalletSingle.png"
         },
         {
             id: "largewallet",
             text: "Large Wallet",
             value: 3,            
-            cost: 50.00,
-            stringCost: "$50.00",
+            cost: 0.01,
+            stringCost: "$0.01",
             imageLargeSrc: "img/LargeQuiltedWalletSingle.png"
         }
     ];
+
+    // var wallets = [
+    //     {
+    //         id: "smallwallet",
+    //         text: "Small Wallet",
+    //         value: 1,
+    //         cost: 30.00,
+    //         stringCost: "$30.00",
+    //         imageLargeSrc: "img/SmallQuiltedWalletSingle.png"
+    //     },
+    //     {
+    //         id: "mediumwallet",
+    //         text: "Medium Wallet",
+    //         value: 2,
+    //         cost: 40.00,
+    //         stringCost: "$40.00",
+    //         imageLargeSrc: "img/MediumQuiltedWalletSingle.png"
+    //     },
+    //     {
+    //         id: "largewallet",
+    //         text: "Large Wallet",
+    //         value: 3,            
+    //         cost: 50.00,
+    //         stringCost: "$50.00",
+    //         imageLargeSrc: "img/LargeQuiltedWalletSingle.png"
+    //     }
+    // ];
 
     var fabrics = [
         {

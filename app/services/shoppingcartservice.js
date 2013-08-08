@@ -58,6 +58,10 @@
         return msg;
     }
 
+    this.removeAllItemsFromShoppingCart = function () {
+        localStorage.removeItem("cultivatedmoose");
+    }
+
     this.removeFromShoppingCart = function (sku) {
         var msg ="";
         var shoppingCart = "[";
@@ -123,7 +127,7 @@
     this.getShoppingCartShippingCostNbr = function () {
         var shippingcost = 0;
         
-        shippingcost = 10.00;
+        shippingcost = shipping[0].cost;
         
         return shippingcost;
     }
@@ -152,3 +156,31 @@
     }
 
 });
+
+
+var shipping = [
+        {
+            id: "default",
+            text: "Standard USPS",
+            value: 1,
+            cost: 0.01,
+            stringCost: "$0.01",
+            imageLargeSrc: "TBD"
+        },
+        {
+            id: "upsground",
+            text: "UPS Ground",
+            value: 2,
+            cost: 0.01,
+            stringCost: "$0.01",
+            imageLargeSrc: "TBD"
+        },
+        {
+            id: "upsovernight",
+            text: "UPS Overnight",
+            value: 3,            
+            cost: 0.01,
+            stringCost: "$0.01",
+            imageLargeSrc: "TBD"
+        }
+    ];
