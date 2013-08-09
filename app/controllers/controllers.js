@@ -191,10 +191,6 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
             $("#shoppingcartitems").html("");
         }
 
-        // $("#paypal").submit(function (e) {
-        //     e.preventDefault(); 
-        // });
-
         var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();
         $scope.purchasetotal = "$ "+merchindisecost.toFixed(2);
 
@@ -205,10 +201,7 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         $scope.paymentrequired = "$ "+grandtotalcost.toFixed(2);
 
         var paypalcost = grandtotalcost.toFixed(2);
-        $("#paypalamount").val(paypalcost);
-
         var paypalitemname = "Mad Moose Items";
-        $("#paypalaitemname").val(paypalitemname);
 
         $("#cartpayment").click(function () {
             var err = validateShippingForm();
@@ -229,8 +222,23 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
                     var msg = JSON.parse(msgArray);
                     if (msg["status"] == "ok")
                     {
-                        $("#papalreturn").val("http://turksandcaicos/cultivatedmoose/#/confirmation/"+msg["orderid"]);
-                        $("#customerid").val(msg["customerid"]);
+                        $("#paypal_amount").val(paypalcost);
+                        $("#paypal_itemname").val(paypalitemname);
+                        $("#papal_return").val("http://turksandcaicos/cultivatedmoose/#/confirmation/"+msg["orderid"]);
+                        $("#paypal_cancel").val("http://turksandcaicos/cultivatedmoose/#/cancel/"+msg["orderid"]);
+                        $("#paypal_customerid").val(msg["customerid"]);
+
+                        $("#paypal_first_name").val($("#firstname").val());
+                        $("#paypal_last_name").val($("#lastname").val());
+                        $("#paypal_address1").val($("#address1").val());
+                        $("#paypal_address2").val($("#address2").val());
+                        $("#paypal_city").val($("#city").val());
+                        $("#paypal_state").val($("#state").val());
+                        $("#paypal_zip").val($("#zip").val());
+                        $("#paypal_night_phone_a").val($("#phonea").val());
+                        $("#paypal_night_phone_b").val($("#phoneb").val());
+                        $("#paypal_night_phone_c").val($("#phonec").val());
+                        $("#paypal_email").val($("#email").val());
 
                         $("#paypal").submit();
                     }
@@ -238,8 +246,6 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
                     {
                         alert(msg["text"]); 
                     }
-                    
-                    var i = 0;
                 }
             });
 
@@ -263,38 +269,25 @@ controllers.purchaseConfirmationController = function ($scope, $http, $route, $l
                 url: "app/ajax/confirmPurchase.php",
                 data: orderidStr,
                 success: function(msgArray) {
-                    
-                    // after we save aand validate we send pappal
+                    //
+                    // after we save and validate we send paypal
                     // whatever it needs
                     //
+                    shoppingcartService.removeAllItemsFromShoppingCart();
+                    $("#shoppingcartitems").html("");
+
                     var msg = JSON.parse(msgArray);
                     if (msg["status"] == "ok")
                     {
-                        shoppingcartService.removeAllItemsFromShoppingCart();
                         $("#confiramationmsg").html(msg["html"]);
                     }
                     else
                     {
                         $("#confiramationmsg").html(msg["html"]);
-                    }
-
-                    $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-                    if ($scope.itemsinshoppingcart > 0)
-                    {
-                        var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-                        $("#shoppingcartitems").html(str);
-
-                        $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
-                    }
-                    else
-                    {
-                        $("#shoppingcartitems").html("");
                     }
                 }
             });
 
-
-        var i = 0;
     } // end of init
 }
 
@@ -302,21 +295,37 @@ controllers.purchaseCancelController = function ($scope, $http, $route, $locatio
 
     init();
     function init() {     
-        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-        if ($scope.itemsinshoppingcart > 0)
-        {
-            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-            $("#shoppingcartitems").html(str);
+        //
+        // remove cart items, email all around
+        //
+        var paramArray = window.location.hash.split("/");
+        var orderid = paramArray[2];
+        var orderidStr = "orderid="+orderid;
+        $.ajax({
+                type: "POST",
+                url: "app/ajax/cancelPurchase.php",
+                data: orderidStr,
+                success: function(msgArray) {
+                    //
+                    // after we save and validate we send paypal
+                    // whatever it needs
+                    //
+                    shoppingcartService.removeAllItemsFromShoppingCart();
+                    $("#shoppingcartitems").html("");
 
-            $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
-        }
-        else
-        {
-            $("#shoppingcartitems").html("");
-        }
+                    var msg = JSON.parse(msgArray);
+                    if (msg["status"] == "ok")
+                    {
+                        $("#cancelmsg").html(msg["html"]);
+                    }
+                    else
+                    {
+                        $("#cancelmsg").html(msg["html"]);
+                    }
+                }
+            });
 
 
-        var i = 0;
     } // end of init
 }
 

@@ -23,16 +23,21 @@ $msg["text"] = "";
 //------------------------------------------------------
 $customer = array();
 
-$customer["fullname"] = $_POST["fullname"];
+$customer["firstname"] = $_POST["firstname"];
+$customer["lastname"] = $_POST["lastname"];
 $customer["address1"] = $_POST["address1"];
 $customer["address2"] = $_POST["address2"];
 $customer["city"] = $_POST["city"];
 $customer["state"] = $_POST["state"];
 $customer["zip"] = $_POST["zip"];
-$customer["phone"] = $_POST["phone"];
+$customer["phonea"] = $_POST["phonea"];
+$customer["phoneb"] = $_POST["phoneb"];
+$customer["phonec"] = $_POST["phonec"];
 $customer["country"] = $_POST["country"];
 $customer["email"] = $_POST["email"];
 $customer["datetime"] = $datetime;
+
+$customerfullname = $customer["firstname"]." ".$customer["lastname"] ;
 
 //------------------------------------------------------
 // create order items data
@@ -75,7 +80,7 @@ $order["datetime"] = $datetime;
 // messaging
 //
 $msgLog = new AccessLog("logs/");
-$msgLog->writeLog("Custoner Order started for ".$customer["fullname"]);
+$msgLog->writeLog("Custoner Order started for ".$customerfullname);
 
 //------------------------------------------------------
 // Write to database with status of pending paypall 
@@ -207,6 +212,23 @@ if (!$sql_result)
 $orderID = mysql_insert_id();
 
 //------------------------------------------------------
+// add order to history table 
+//------------------------------------------------------  
+$sql = "INSERT into orderhistorytbl select * from ordertbl where orderid = $orderID";
+$sql_result = mysql_query($sql, $dbConn);
+if (!$sql_result)
+{
+	$log = new ErrorLog("logs/");
+	$sqlerr = mysql_error();
+	$log->writeLog("SQL error: $sqlerr - Error inserting history for order");
+	$log->writeLog("SQL: $sql");
+
+	$msg["status"] = "err";
+	$msg["html"] = "<center>System Error 060. Unable to confirm your order.</center>";
+	exit(json_encode($msg));
+}
+
+//------------------------------------------------------
 // add order detail items
 //------------------------------------------------------   
 for ($j = 0; $j < $orderDetailNbr; $j++)
@@ -261,7 +283,7 @@ mysql_close($dbConn);
 //
 // messaging
 //
-$msgLog->writeLog("Custoner Order pendig for  ".$customer["fullname"]);	
+$msgLog->writeLog("Custoner Order pendig for  ".$customerfullname);	
 
 //
 // write email

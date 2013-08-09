@@ -9,3 +9,27 @@
 2013-08-03 19:55:48 : SQL error: Table 'madmoosecreationsdb.customertbl' doesn't exist - Error doing customer insert
 2013-08-03 19:55:48 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email) VALUES ('Tarrant Cutler','68 Barley Neck Rd','','Orleans','MA','02653','7813420204','United States','tarrant.cutler@gmail.com')
 2013-08-03 22:07:01 : DB error: Access denied for user 'madmoose'@'localhost' (using password: YES) - Error mysql connect
+2013-08-09 13:30:46 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:30:46 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:30:46')
+2013-08-09 13:31:07 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:31:07 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:31:07')
+2013-08-09 13:44:44 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:44:44 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:44:44')
+2013-08-09 13:47:31 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:47:31 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:47:31')
+2013-08-09 13:50:01 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:50:01 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:50:01')
+2013-08-09 13:50:26 : SQL error: Unknown column 'datetime' in 'field list' - Error doing customer insert
+2013-08-09 13:50:26 : SQL: INSERT INTO customertbl (fullname,address1,address2,city,state,zip,phone,country,email,datetime) VALUES ('Tarrant Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 13:50:26')
+2013-08-09 11:16:47 : SQL error: Duplicate entry '10' for key 'PRIMARY' - Error inserting history for order
+2013-08-09 11:16:47 : SQL: INSERT into orderhistorytbl select * from ordertbl where orderid = 10
+2013-08-09 15:29:48 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
+2013-08-09 15:29:48 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','7813420204','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 15:29:48')
+2013-08-09 15:32:03 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
+2013-08-09 15:32:03 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','7813420204','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 15:32:03')
+2013-08-09 15:32:49 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
+2013-08-09 15:32:49 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','7813420204','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 15:32:49')
+2013-08-09 15:35:43 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
+2013-08-09 15:35:43 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','7813420204','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 15:35:43')
+2013-08-09 15:37:44 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
+2013-08-09 15:37:44 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','781','342','0204','United States','tarrant.cutler@gmail.com','2013-08-09 15:37:44')

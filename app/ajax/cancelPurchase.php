@@ -23,10 +23,10 @@ $msg["html"] = "";
 // messaging
 //
 $msgLog = new AccessLog("logs/");
-$msgLog->writeLog("Custoner Order Confirmation started for order id: $orderid");
+$msgLog->writeLog("Custoner Order Cancel started for order id: $orderid");
 
 //------------------------------------------------------
-// Write to database with status of paid paypall 
+// Write to database with status of cancel paypall 
 //------------------------------------------------------
 // open connection to host
 $DBhost = "localhost";
@@ -45,7 +45,7 @@ if (!$dbConn)
 	$log->writeLog("DB error: $dberr - Error mysql connect");
 
 	$msg["status"] = "err";
-	$msg["html"] = "<center>System Error 101. Unable to confirm your order.</center>";
+	$msg["html"] = "<center>System Error 201. Error in processing the cancelation of your order.</center>";
 	exit(json_encode($msg));
 }
 
@@ -56,14 +56,14 @@ if (!mysql_select_db($DBschema, $dbConn))
 	$log->writeLog("DB error: $dberr - Error selecting db");
 
 	$msg["status"] = "err";
-	$msg["html"] = "<center>System Error 102. Unable to confirm your order.</center>";
+	$msg["html"] = "<center>System Error 202. Error in processing the cancelation of your order.</center>";
 	exit(json_encode($msg));
 }
 
 //------------------------------------------------------
 // update order status to paid
 //------------------------------------------------------      
-$sql = "UPDATE ordertbl SET orderstatus = 'paid', paypalstatus = 'paid', datetime = '$datetime' WHERE orderid = $orderid";
+$sql = "UPDATE ordertbl SET orderstatus = 'canceled', paypalstatus = 'cancel', datetime = '$datetime' WHERE orderid = $orderid";
 $sql_result = mysql_query($sql, $dbConn);
 if (!$sql_result)
 {
@@ -73,7 +73,7 @@ if (!$sql_result)
 	$log->writeLog("SQL: $sql");
 
 	$msg["status"] = "err";
-	$msg["html"] = "<center>System Error 130. Unable to confirm your order.</center>";
+	$msg["html"] = "<center>System Error 230. Error in processing the cancelation of your order.</center>";
 	exit(json_encode($msg));
 }
 
@@ -90,7 +90,7 @@ if (!$sql_result)
 	$log->writeLog("SQL: $sql");
 
 	$msg["status"] = "err";
-	$msg["html"] = "<center>System Error 160. Unable to confirm your order.</center>";
+	$msg["html"] = "<center>System Error 260. Error in processing the cancelation of your order.</center>";
 	exit(json_encode($msg));
 }
 
@@ -107,7 +107,7 @@ if (!$sql_result)
 	$log->writeLog("SQL: $sql");
 
 	$msg["status"] = "err";
-	$msg["html"] = "<center>System Error 140. Unable to get customer information. Order is confirmed.</center>";
+	$msg["html"] = "<center>System Error 240. Unable to get customer information. Order is canceled.</center>";
 	exit(json_encode($msg));
 }
 
@@ -116,13 +116,13 @@ $row = mysql_fetch_array($sql_result,MYSQL_ASSOC);
 //
 // messaging
 //
-$msgLog->writeLog("Custoner Order Confirmed paid for  ".$row["firstname"]." ".$row["lastname"]);	
+$msgLog->writeLog("Custoner Order Confirmed canceled for  ".$row["firstname"]." ".$row["lastname"]);	
 
 //
 // pass back info
 //
 $msg["status"] = "ok";
-$msg["html"] = "<h4>Congratulations ".$row["firstname"]." ".$row["lastname"]."! Your order is confirmed. Expect two weeks before delivery.</h4>";
+$msg["html"] = "<h4>As requested ".$row["firstname"]." ".$row["lastname"].". Your order is canceled. </h4>";
 
 //
 // close db connection

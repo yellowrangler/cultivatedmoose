@@ -45,6 +45,7 @@ class Log
     
     public function writeLog($msg)
     {
+
         $this->time = time();
         $this->datetime = date("Y-m-d H:i:s", $this->time);
         $this->buffer = $this->datetime." : ".$msg."\n";

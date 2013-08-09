@@ -22,32 +22,38 @@ function validateShippingForm()
 {
 	var err = "";
 
-	err = simpleValidation($("#fullname"), "Please enter required First Name");
+	err = simpleValidation($("#firstname"), "Please enter required First Name",2,255);
 	if (err) return err;
 
-	err = simpleValidation($("#address1"), "Please enter required Address");
+	err = simpleValidation($("#lastname"), "Please enter required Last Name",2,255);
+	if (err) return err;
+
+	err = simpleValidation($("#address1"), "Please enter required Address",2,255);
 	if (err) return err;
 	
-	err = simpleValidation($("#city"), "Please enter required City");
+	err = simpleValidation($("#city"), "Please enter required City",2,255);
 	if (err) return err;
 
-	err = simpleValidation($("#state"), "Please enter required State");
+	err = simpleValidation($("#state"), "Please enter required State",2,2);
 	if (err) return err;
 
-	err = simpleValidation($("#zip"), "Please enter required ZIP");
+	err = simpleValidation($("#zip"), "Please enter required ZIP",5,9);
 	if (err) return err;
 
-	err = simpleValidation($("#email"), "Please enter required eMail address");
+	err = phoneNbrValidation($("#phonea"),$("#phoneb"), $("#phonec"), "Please enter required Phone Number");
+	if (err) return err;
+
+	err = simpleValidation($("#email"), "Please enter required eMail address",2,255);
 	if (err) return err;
 
 	return 0;
 }
 
-function simpleValidation(obj,msg)
+function simpleValidation(obj,msg,lth_min,lth_max)
 {
 	var test = obj.val();
 
-	if (test.length < 2)
+	if (test.length < lth_min || test.length > lth_max )
 	{
 		alert (msg);
 		obj.focus();
@@ -91,6 +97,67 @@ function ddslickValidation(obj,msg)
 		obj.focus();
 
 		return 1;
+	}
+
+	return 0;
+}
+
+function phoneNbrValidation(obja,objb,objc,msg)
+{
+	var test = new Array();
+	test[0] = obja;
+	test[1] = objb;
+	test[2] = objc;
+
+	for (var i = 0; i < test.length; i++)
+	{
+		var thistest = test[i].val();
+
+		switch(i)
+		{
+			case 0:
+			case 1:
+				if (thistest.length != 3)
+				{
+					alert (msg);
+					test[i].focus();
+
+					return 1;
+				}
+
+				for (var k = 0; k < thistest.length; k++)
+				{
+					if (isNaN(thistest[k]))
+					{
+						alert (msg);
+						test[i].focus();
+
+						return 1;
+					} 
+				}
+				break;
+
+			case 2:
+				if (thistest.length != 4)
+				{
+					alert (msg);
+					test[i].focus();
+
+					return 1;
+				}
+
+				for (var k = 0; k < thistest.length; k++)
+				{
+					if (isNaN(thistest[k]))
+					{
+						alert (msg);
+						test[i].focus();
+
+						return 1;
+					} 
+				}
+				break;
+		}
 	}
 
 	return 0;

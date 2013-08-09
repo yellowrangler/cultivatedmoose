@@ -14,10 +14,16 @@
     <div style="padding-top:40px;padding-left:35px;">
     <table>
     <tr style="height:45px;">
-    	<td align="right"><strong>Name</strong></td>
+    	<td align="right"><strong>First Name</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px" type="text" id="fullname" name="fullname" placeholder="Enter your Full name" required>
+	    	<input style="width:400px" type="text" id="firstname" name="firstname" placeholder="Enter your Full name" required>
     	</td>
+    </tr>
+    <tr style="height:45px;">
+        <td align="right"><strong>Last Name</strong></td>
+        <td align="left" style="padding-left:10px;" colspan=4>
+            <input style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
+        </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Address</strong></td>
@@ -40,7 +46,59 @@
 	<tr style="height:45px;">
     	<td align="right"><strong>State</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<input style="width:200px;" type="text" id="state" name="state" placeholder="Enter your State" required>
+	    	<select name="state" id="state">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select>
     	</td>
 
     	<td style="width:50px;">&nbsp;</td>
@@ -53,7 +111,9 @@
     <tr style="height:45px;">
     	<td align="right"><strong>Phone</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="tel" id="phone" name="phone" placeholder="Enter your phone nbr" required>
+	    	<input style="width:40px;" type="text" id="phonea" name="phonea" required> &nbsp;
+            <input style="width:40px;" type="text" id="phoneb" name="phoneb" required> &nbsp;
+            <input style="width:60px;" type="text" id="phonec" name="phonec" required> 
     	</td>
     </tr>
     <tr style="height:45px;">
@@ -117,13 +177,24 @@
 <!-- <form id="paypal" name="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"> -->
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="elcutler-facilitator@wildblue.net">
-<input type="hidden" name="item_name" id="paypalaitemname"  value="madmooseitems">
-<input type="hidden" name="item_number" id="customerid"  value="">
-<input type="hidden" name="return" id="papalreturn" value="" >
-<input type="hidden" name="cancel_return" value="http://turksandcaicos/#/cultivatedmoose/cancel" >
+<input type="hidden" name="item_name" id="paypal_itemname"  value="madmooseitems">
+<input type="hidden" name="item_number" id="paypal_customerid"  value="">
+<input type="hidden" name="return" id="papal_return" value="" >
+<input type="hidden" name="cancel_return"  id="paypal_cancel" value="" >
 <input type="hidden" name="image_url" value="http://turksandcaicos/cultivatedmoose/img/cultivatedmooseorange-paypal-banner.png" >
 <input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="amount" id="paypalamount" value="">
+<input type="hidden" name="amount" id="paypal_amount" value="">
+<input type="hidden" name="first_name" id="paypal_first_name" value="">
+<input type="hidden" name="last_name" id="paypal_last_name" value="">
+<input type="hidden" name="address1" id="paypal_address1" value="">
+<input type="hidden" name="address2" id="paypal_address2" value="">
+<input type="hidden" name="city" id="paypal_city" value="">
+<input type="hidden" name="state" id="paypal_state" value="">
+<input type="hidden" name="zip" id="paypal_zip" value="">
+<input type="hidden" name="night_phone_a" id="paypal_night_phone_a" value="">
+<input type="hidden" name="night_phone_b" id="paypal_night_phone_b" value="">
+<input type="hidden" name="night_phone_c" id="paypal_night_phone_c" value="">
+<input type="hidden" name="email" id="paypal_email" value="">
 <button id="cartpayment" type="button" class="btn btn-info btn-small">Procede to PayPal</button>
 </center>	
 </div>
