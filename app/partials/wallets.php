@@ -10,14 +10,12 @@
 <div class="row" style="padding-top:15px;">
 	<div class="col-lg-5">
 		<div id="outlinewallets" style="padding:10px;" class="curveBox">
-		<div style="padding-top:20px;" class="row">
+		<div style="padding-top:30px;" class="row">
 		<div class="col-lg-12">
 		<center>
-		<img id="walletdisplay" style="height:200px;"  src="img/wallet.png">
+		<img id="walletdisplay" style="height:225px;"  src="img/wallet.png">
 		</center>
 		</div> <!-- end of col-lg-12 -->
-		</div> <!-- end of row -->
-		<div id="walletimageselect" class="row" style="padding-top:20px;">
 		</div> <!-- end of row -->
 	</div> <!-- end of outlinewallets -->
 	</div> <!-- end of span5 -->
@@ -33,7 +31,7 @@
 		<div id="fabriclist" style="padding:0;margin:0;font-size:10px;"></div>
 		</div><!-- end of col-lg-6 -->
 		<div class="col-lg-3">
-		<button type="button" data-ng-click="showModalDialog('fabric')" class="btn btn-info btn-mini" data-toggle="button">Fabric Chart</button>
+		<button style="height:50px;" type="button" data-ng-click="showModalDialog('fabric')" class="btn btn-info btn-mini" data-toggle="button">Fabric Chart</button>
 		</div><!-- end of col-lg-3-->
 	</div><!-- end of row -->
 	</div><!-- end of fabric-->

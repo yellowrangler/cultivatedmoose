@@ -111,9 +111,7 @@
     <tr style="height:45px;">
     	<td align="right"><strong>Phone</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:40px;" type="text" id="phonea" name="phonea" required> &nbsp;
-            <input style="width:40px;" type="text" id="phoneb" name="phoneb" required> &nbsp;
-            <input style="width:60px;" type="text" id="phonec" name="phonec" required> 
+	    	<input class="tips" style="width:170px;" type="text" id="phone" name="phone" data-toggle="tooltip" data-placement="right" title="Dashes will be added as you type." placeholder="Enter your phone number" required>
     	</td>
     </tr>
     <tr style="height:45px;">

@@ -43,9 +43,6 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         $scope.fabrics = productService.getFabrics();
         $scope.wallets = productService.getWallets();
 
-        var walletsImageStr = productService.createWalletImageSelectStr();
-        $("#walletimageselect").html(walletsImageStr);
-
         $('[name="walletimage"]').click(function() {
              var newImageSrc = productService.getWalletImageSrc(this.id);
              $("#walletdisplay").attr("src", newImageSrc);
@@ -174,7 +171,7 @@ controllers.shoppingCartController = function ($scope, $http, $route, $location,
     };
 }
 
-controllers.purchaseController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
+controllers.checkoutController = function ($scope, $http, $route, $location, cultivatedmooseApp, productService, shoppingcartService) {
 
     init();
     function init() {     
@@ -190,6 +187,27 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
         {
             $("#shoppingcartitems").html("");
         }
+
+        //
+        // setup calss tips for all tooltips
+        //
+        $(".tips").tooltip();
+
+        //
+        // restrict phone input
+        //
+        $("#phone").keypress(function(e) {
+            if (e.keyCode < 47 || e.keyCode > 57)
+            {
+                e.preventDefault();
+
+                return false;
+            }
+
+            var test = this.value;
+            if (test.length == 3 || test.length == 7)
+                this.value = test + "-";
+        });
 
         var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();
         $scope.purchasetotal = "$ "+merchindisecost.toFixed(2);
@@ -215,8 +233,8 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
                 url: "app/ajax/customerInvoice.php",
                 data: serializedData,
                 success: function(msgArray) {
-                    
-                    // after we save aand validate we send pappal
+                    //
+                    // after we save and validate we send pappal
                     // whatever it needs
                     //
                     var msg = JSON.parse(msgArray);
@@ -235,9 +253,12 @@ controllers.purchaseController = function ($scope, $http, $route, $location, cul
                         $("#paypal_city").val($("#city").val());
                         $("#paypal_state").val($("#state").val());
                         $("#paypal_zip").val($("#zip").val());
-                        $("#paypal_night_phone_a").val($("#phonea").val());
-                        $("#paypal_night_phone_b").val($("#phoneb").val());
-                        $("#paypal_night_phone_c").val($("#phonec").val());
+
+                        var phone_array = $("#phone").val().split("-");
+                        $("#paypal_night_phone_a").val(phone_array[0]);
+                        $("#paypal_night_phone_b").val(phone_array[1]);
+                        $("#paypal_night_phone_c").val(phone_array[2]);
+
                         $("#paypal_email").val($("#email").val());
 
                         $("#paypal").submit();

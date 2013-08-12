@@ -24,6 +24,7 @@
 	<div class="col-lg-2">
 		{{shoppingCartItem.item}}
 		<br />
+		<span style="font-size:9px;color:grey;cursor:pointer;" class='glyphicon glyphicon-trash' data-ng-click="deleteShoppingcartItem(shoppingCartItem.sku)"></span>&nbsp;
 		<span style="font-size:9px;color:grey;cursor:pointer;" data-ng-click="deleteShoppingcartItem(shoppingCartItem.sku)">Remove</span>
 	</div>
 	<div class="col-lg-2">{{shoppingCartItem.color}}</div>

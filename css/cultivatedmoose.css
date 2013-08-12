@@ -135,3 +135,34 @@
     margin-top:5px;
     margin-bottom:5px;
 }
+
+.dd-option {
+    height:50px;
+    line-height: 15px;
+    padding-top:0px;
+}
+
+.dd-option-text {
+    height:15px;
+    line-height:14px;
+}
+
+.dd-option-image {
+    height:35px;
+    width:35px;
+}
+
+.dd-selected {
+    height:50px;
+    line-height: 15px;
+}
+
+.dd-selected-text {
+    height:15px;
+    line-height:14px;
+}
+
+.dd-selected-image {
+    height:35px;
+    width:35px;
+}

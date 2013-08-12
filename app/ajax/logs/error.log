@@ -33,3 +33,5 @@
 2013-08-09 15:35:43 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','7813420204','7813420204','7813420204','United States','tarrant.cutler@gmail.com','2013-08-09 15:35:43')
 2013-08-09 15:37:44 : SQL error: Unknown column 'firstname' in 'field list' - Error doing customer insert
 2013-08-09 15:37:44 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','781','342','0204','United States','tarrant.cutler@gmail.com','2013-08-09 15:37:44')
+2013-08-10 08:58:25 : SQL error: Unknown column 'phonea' in 'field list' - Error doing customer insert
+2013-08-10 08:58:25 : SQL: INSERT INTO customertbl (firstname,lastname,address1,address2,city,state,zip,phonea,phoneb,phonec,country,email,datetime) VALUES ('Tarrant','Cutler','5 Masconomo St','','Manchester','MA','01944','','','','United States','tarrant.cutler@gmail.com','2013-08-10 08:58:25')

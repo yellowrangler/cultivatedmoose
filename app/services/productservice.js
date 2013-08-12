@@ -64,19 +64,19 @@
          return itemsrc;
     };
 
-    this.createWalletImageSelectStr = function () {
-        var walletImageStr = "<center>";
-        $.each(wallets, function() {
-            walletImageStr = walletImageStr +"<div class='col-lg-4'>";
-            walletImageStr = walletImageStr +"<img name='walletimage' class='imgWalletDisplay' id='"+this.value+"' src='"+this.imageLargeSrc+"'> ";
-            walletImageStr = walletImageStr +"<div style='padding-top:10px;'><span style='font-size:10px;' >"+this.text+"</span></div>";
-            walletImageStr = walletImageStr +"</div> <!-- end of col-lg-4 -->";
-        });
+    // this.createWalletImageSelectStr = function () {
+    //     var walletImageStr = "<center>";
+    //     $.each(wallets, function() {
+    //         walletImageStr = walletImageStr +"<div class='col-lg-4'>";
+    //         walletImageStr = walletImageStr +"<img name='walletimage' class='imgWalletDisplay' id='"+this.value+"' src='"+this.imageLargeSrc+"'> ";
+    //         walletImageStr = walletImageStr +"<div style='padding-top:10px;'><span style='font-size:10px;' >"+this.text+"</span></div>";
+    //         walletImageStr = walletImageStr +"</div> <!-- end of col-lg-4 -->";
+    //     });
 
-        walletImageStr = walletImageStr + "</center>";
+    //     walletImageStr = walletImageStr + "</center>";
 
-        return walletImageStr;
-    }
+    //     return walletImageStr;
+    // }
 
     this.pad = function pad (str, max) {
       return str.length < max ? pad("0" + str, max) : str;

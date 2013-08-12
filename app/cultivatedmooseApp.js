@@ -31,7 +31,7 @@ cultivatedmooseApp.config(function ($routeProvider) {
             })            
         .when('/checkout',
             {
-                controller: 'purchaseController',
+                controller: 'checkoutController',
                 templateUrl: 'app/partials/checkout.php'
             })
         .when('/confirmation/:orderid',
