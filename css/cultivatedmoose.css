@@ -136,6 +136,7 @@
     margin-bottom:5px;
 }
 
+/* ddslick css overrides */
 .dd-option {
     height:50px;
     line-height: 15px;
@@ -165,4 +166,14 @@
 .dd-selected-image {
     height:35px;
     width:35px;
+}
+
+/* banner css */
+
+.shoppingCartDisplay {
+    padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;
+}
+
+.shoppingCartIcon {
+    text-decoration:none;color:orange;font-size:30px;
 }

@@ -10,6 +10,17 @@
         return shoppingcartitems;
     }
 
+    this.setShoppingCartItemsDisplay = function () {
+        var shoppingcartdisplay = "";
+        var itemsinshoppingcart = this.numberOfShoppingCartItems();
+        if (itemsinshoppingcart > 0)
+        {
+            shoppingcartdisplay = "<a class='shoppingCartDisplay' href='#/shoppingcart'>"+itemsinshoppingcart+"</a><a href='#/shoppingcart' class='shoppingCartIcon'><span class='glyphicon glyphicon-shopping-cart'></span></a>";
+        }
+
+        return shoppingcartdisplay;
+    }
+
     // this.addToShoppingCart = function (newsku, newsizetext, newcostper, newcolortext, newproductimage, newqty, newtotalcost) {
 
     this.addToShoppingCart = function (newsku, newitem, newsizetext, newcostper, newcolortext, newproductimage, newproductimagelarge, newqty, newtotalcost) {

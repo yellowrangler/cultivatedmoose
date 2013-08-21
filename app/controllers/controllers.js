@@ -1,37 +1,26 @@
 // define controllers for app
 var controllers = {};
+controllers.cultivatedmooseParentController = function ($scope, $http, $location, cultivatedmooseApp, shoppingcartService) {
+
+    init();
+    function init() {
+        $scope.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
+	};
+}
+
 controllers.cultivatedmooseController = function ($scope, $http, $location, cultivatedmooseApp, shoppingcartService) {
 
     init();
     function init() {
-    	$scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-        if ($scope.itemsinshoppingcart > 0)
-        {
-            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-            $("#shoppingcartitems").html(str);
-        }
-        else
-        {
-            $("#shoppingcartitems").html("");
-        }
-	};
+        
+    };
 }
 
 controllers.productController = function ($scope, $http, $location, cultivatedmooseApp, productService, shoppingcartService) {
 
     init();
     function init() {
-        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-        if ($scope.itemsinshoppingcart > 0)
-        {
-            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-            $("#shoppingcartitems").html(str);
-        }
-        else
-        {
-            $("#shoppingcartitems").html("");
-        }
-               
+        $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
 
         $( "#walletqty" ).spinner({
             stop: function( event, ui ) {
@@ -135,17 +124,7 @@ controllers.shoppingCartController = function ($scope, $http, $route, $location,
 
     init();
     function init() {
-        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-        if ($scope.itemsinshoppingcart > 0)
-        {
-            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-            $("#shoppingcartitems").html(str);
-        }
-        else
-        {
-            $("#shoppingcartitems").html("");
-            $location.path("/");
-        }
+        $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
 
         $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
         $scope.shoppingcarttotalcostStr = shoppingcartService.getShoppingCartTotalCostStr();
@@ -175,18 +154,7 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
 
     init();
     function init() {     
-        $scope.itemsinshoppingcart = shoppingcartService.numberOfShoppingCartItems();
-        if ($scope.itemsinshoppingcart > 0)
-        {
-            var str = "<a style='padding-bottom:5px;text-decoration:none;color:orange;font-size:13px;'href='#/shoppingcart'>"+$scope.itemsinshoppingcart+"</a><a href='#/shoppingcart' style='text-decoration:none;color:orange;font-size:30px;' <span class='glyphicon glyphicon-shopping-cart'></span></a>";
-            $("#shoppingcartitems").html(str);
-
-            $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
-        }
-        else
-        {
-            $("#shoppingcartitems").html("");
-        }
+        $scope.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
 
         //
         // setup calss tips for all tooltips
@@ -209,6 +177,8 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
                 this.value = test + "-";
         });
 
+        $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
+
         var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();
         $scope.purchasetotal = "$ "+merchindisecost.toFixed(2);
 
@@ -228,23 +198,19 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
 
             var serializedData = $("#shipping").serialize();
 
-            $.ajax({
-                type: "POST",
-                url: "app/ajax/customerInvoice.php",
-                data: serializedData,
-                success: function(msgArray) {
+            cultivatedmooseApp.addShoppingCartItem(serializedData)
+                .success( function(msgArray) {
                     //
                     // after we save and validate we send pappal
                     // whatever it needs
                     //
-                    var msg = JSON.parse(msgArray);
-                    if (msg["status"] == "ok")
+                    if (msgArray.status == "ok")
                     {
                         $("#paypal_amount").val(paypalcost);
                         $("#paypal_itemname").val(paypalitemname);
-                        $("#papal_return").val("http://turksandcaicos/cultivatedmoose/#/confirmation/"+msg["orderid"]);
-                        $("#paypal_cancel").val("http://turksandcaicos/cultivatedmoose/#/cancel/"+msg["orderid"]);
-                        $("#paypal_customerid").val(msg["customerid"]);
+                        $("#papal_return").val("http://turksandcaicos/cultivatedmoose/#/confirmation/"+msgArray.orderid);
+                        $("#paypal_cancel").val("http://turksandcaicos/cultivatedmoose/#/cancel/"+msgArray.orderid);
+                        $("#paypal_customerid").val(msgArray.customerid);
 
                         $("#paypal_first_name").val($("#firstname").val());
                         $("#paypal_last_name").val($("#lastname").val());
@@ -265,10 +231,13 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
                     }
                     else
                     {
-                        alert(msg["text"]); 
+                        alert(msgArray.text); 
                     }
-                }
-            });
+                })
+
+                .error( function(data) {
+                    $scope.messages.msg = "Failed ajax to add items";
+                });
 
             return false
         });
@@ -285,29 +254,35 @@ controllers.purchaseConfirmationController = function ($scope, $http, $route, $l
         var paramArray = window.location.hash.split("/");
         var orderid = paramArray[2];
         var orderidStr = "orderid="+orderid;
-        $.ajax({
-                type: "POST",
-                url: "app/ajax/confirmPurchase.php",
-                data: orderidStr,
-                success: function(msgArray) {
+
+        cultivatedmooseApp.updateShoppingCartConfirmation(orderidStr)
+                .success( function(msgArray) {
                     //
                     // after we save and validate we send paypal
                     // whatever it needs
                     //
                     shoppingcartService.removeAllItemsFromShoppingCart();
-                    $("#shoppingcartitems").html("");
+                   $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
+                    // $("#shoppingcartitems").html("");
 
-                    var msg = JSON.parse(msgArray);
-                    if (msg["status"] == "ok")
+                    //
+                    // after we save and validate we send pappal
+                    // whatever it needs
+                    //
+                    if (msgArray.status == "ok")
                     {
-                        $("#confiramationmsg").html(msg["html"]);
+                        $("#confiramationmsg").html(msgArray.html);
                     }
                     else
                     {
-                        $("#confiramationmsg").html(msg["html"]);
+                        $("#confiramationmsg").html(msgArray.html);
                     }
-                }
-            });
+                })
+
+                 .error( function(data) {
+                    $scope.messages.msg = "Failed ajax to update confirmation";
+                });
+
 
     } // end of init
 }
@@ -322,29 +297,34 @@ controllers.purchaseCancelController = function ($scope, $http, $route, $locatio
         var paramArray = window.location.hash.split("/");
         var orderid = paramArray[2];
         var orderidStr = "orderid="+orderid;
-        $.ajax({
-                type: "POST",
-                url: "app/ajax/cancelPurchase.php",
-                data: orderidStr,
-                success: function(msgArray) {
+
+        cultivatedmooseApp.updateShoppingCartCancel(orderidStr)
+                .success( function(msgArray) {
                     //
                     // after we save and validate we send paypal
                     // whatever it needs
                     //
                     shoppingcartService.removeAllItemsFromShoppingCart();
-                    $("#shoppingcartitems").html("");
+                   $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
+                    // $("#shoppingcartitems").html("");
 
-                    var msg = JSON.parse(msgArray);
-                    if (msg["status"] == "ok")
+                    //
+                    // after we save and validate we send pappal
+                    // whatever it needs
+                    //
+                    if (msgArray.status == "ok")
                     {
-                        $("#cancelmsg").html(msg["html"]);
+                        $("#cancelmsg").html(msgArray.html);
                     }
                     else
                     {
-                        $("#cancelmsg").html(msg["html"]);
+                        $("#cancelmsg").html(msgArray.html);
                     }
-                }
-            });
+                })
+
+                 .error( function(data) {
+                    $scope.messages.msg = "Failed ajax to update cancel";
+                });
 
 
     } // end of init

@@ -13,17 +13,19 @@
 <link href="css/cultivatedmoose.css" rel="stylesheet" />
 </head>
 
-<body style="background:white;" >
+<body style="background:white;" data-ng-controller="cultivatedmooseParentController" >
 
-<div class="container">
-
-<div style="background:white">
+<div style="padding-left:50px;padding-bottom:25px;width:100%;background:white">
     <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
     <div style="padding-top:35px;">
-        <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span>    
-        <span id="shoppingcartitems" style="float:right;"></span>
+        <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span> 
+        <shopping-cart-items-display 
+            itemsincart='{{shoppingcartitemnbr}}'>
+        </shopping-cart-items-display>   
     </div>
 </div>
+
+<div class="container" style="padding-top:20px;">
 
 <div style="background:white;clear:both;" data-ng-view=""></div>
 
@@ -52,6 +54,7 @@
 <script src="app/controllers/controllers.js"></script>
 <script src="app/factories/factories.js"></script>
 <script src="app/services/productservice.js"></script>
+<script src="app/directives/directives.js"></script>
 <script src="app/services/shoppingcartservice.js"></script>
 <script src="app/validations/validate.js"></script>
 

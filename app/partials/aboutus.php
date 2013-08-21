@@ -1,5 +1,5 @@
 <div class="container">
-<div class="row" style="padding-top:10px;" >
+<div class="row" style="padding-top:0px;" >
 <div class="col-lg-12">
 <div class="section-article">
 <h2 class="bodyFont">Mad Moose Creator and Owner</h2>
@@ -7,7 +7,7 @@
 </div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->
 
-<div class="row" style="padding-top:20px;">
+<div class="row" style="padding-top:15px;">
 <div class="col-lg-5">
 <center><img id="msmadmoose" src="img/LisaSewing.png"></center>
 </div> <!-- end of span5 -->
