@@ -12,9 +12,8 @@
 		<div id="outlinewallets" style="padding:10px;" class="curveBox">
 		<div style="padding-top:30px;" class="row">
 		<div class="col-lg-12">
-		<center>
-		<img id="walletdisplay" style="height:225px;"  src="img/wallet.png">
-		</center>
+		<wallet-items-display itemimage="imageWallet">
+        </wallet-items-display>
 		</div> <!-- end of col-lg-12 -->
 		</div> <!-- end of row -->
 	</div> <!-- end of outlinewallets -->

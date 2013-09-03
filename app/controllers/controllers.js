@@ -31,11 +31,13 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
 
         $scope.fabrics = productService.getFabrics();
         $scope.wallets = productService.getWallets();
+        $scope.imageWallet = productService.getDefaultWalletImage();
 
-        $('[name="walletimage"]').click(function() {
-             var newImageSrc = productService.getWalletImageSrc(this.id);
-             $("#walletdisplay").attr("src", newImageSrc);
-        });
+        // $('[name="walletimage"]').click(function() {
+        //      var newImageSrc = productService.getWalletImageSrc(this.id);
+        //      $("#walletdisplay").attr("src", newImageSrc);
+        // });  
+        // this is old code to support small images at bottom
 
         $('#fabriclist').ddslick({
             data:$scope.fabrics,
@@ -50,8 +52,11 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
             var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
             $("#walletcost").html(costStr);   
 
-            var newImageSrc = productService.getWalletImageSrc($("#walletsize").val());
-             $("#walletdisplay").attr("src", newImageSrc);
+            $scope.imageWallet = productService.getWalletImageSrc($("#walletsize").val());
+            $scope.$apply();
+            
+            // var newImageSrc = productService.getWalletImageSrc($("#walletsize").val());
+            //  $("#walletdisplay").attr("src", newImageSrc);
         });
 
         $("#walletqty").change(function () {

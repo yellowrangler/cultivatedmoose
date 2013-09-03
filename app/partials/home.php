@@ -19,7 +19,7 @@ At Mad Moose Creations I hand make and sell Quality Fabric Wallets and Canvas Ba
       <div class="col-lg-12">
       <div style="padding:15px;" class="thumbnail">
           <center>
-          <img data-src="holder.js/260x180" alt="260x180" style="width:250px; height:180px;" src="img/wallet.png">
+          <img data-src="holder.js/260x180" alt="260x180" style="width:250px; height:180px;" src="img/products/wallet.png">
           </center>
           <div class="caption">
             <center>
@@ -44,7 +44,7 @@ At Mad Moose Creations I hand make and sell Quality Fabric Wallets and Canvas Ba
       <div class="col-lg-12">
       <div style="padding:15px;" class="thumbnail">
           <center>
-          <img data-src="holder.js/260x180" alt="260x180" style="width:260px; height:180px;" src="img/canvas.png">
+          <img data-src="holder.js/260x180" alt="260x180" style="width:260px; height:180px;" src="img/products/canvas.png">
           </center>
           <div class="caption">
             <center>
