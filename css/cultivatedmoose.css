@@ -103,7 +103,7 @@
     border:2px solid;
     border-radius:25px;
     padding: 30px;
-    height:335px;
+    height:365px;
     border-color:#E8E8E8;
 }
 
@@ -122,18 +122,36 @@
     cursor: pointer;
 }
 
-.imgWalletDisplay {
-    height:50px;
+.imgProductSmallDisplay {
+    height:45px;
     cursor: pointer;
 }
 
-.horizontalRule {
-    min-height: 1px;
-    clear:both; width:100%;
-    border-bottom:1px solid #d1d1d1;
-    height:1px; padding-top:5px;
-    margin-top:5px;
-    margin-bottom:5px;
+.imgProductLargeDisplay {
+    height:225px;
+    cursor: pointer;
+}
+
+.imgProductLargeDisplay {
+    height:225px;
+    cursor: pointer;
+}
+.dialogTitlesA {
+    color:maroon;
+    font-size:120%;
+    text-align:center;
+}
+
+.dialogTitlesB {
+    color:blue;
+    font-size:110%;
+    text-align:center;
+}
+
+.dialogMsg {
+    color:grey;
+    font-size:110%;
+    padding:20px;
 }
 
 /* ddslick css overrides */

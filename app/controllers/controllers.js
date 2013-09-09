@@ -31,13 +31,8 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
 
         $scope.fabrics = productService.getFabrics();
         $scope.wallets = productService.getWallets();
-        $scope.imageWallet = productService.getDefaultWalletImage();
 
-        // $('[name="walletimage"]').click(function() {
-        //      var newImageSrc = productService.getWalletImageSrc(this.id);
-        //      $("#walletdisplay").attr("src", newImageSrc);
-        // });  
-        // this is old code to support small images at bottom
+        $scope.imgobj = productService.getWalletImageSrc(2);
 
         $('#fabriclist').ddslick({
             data:$scope.fabrics,
@@ -52,18 +47,15 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
             var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
             $("#walletcost").html(costStr);   
 
-            $scope.imageWallet = productService.getWalletImageSrc($("#walletsize").val());
+            $scope.imgobj = productService.getWalletImageSrc($("#walletsize").val());
             $scope.$apply();
             
-            // var newImageSrc = productService.getWalletImageSrc($("#walletsize").val());
-            //  $("#walletdisplay").attr("src", newImageSrc);
         });
 
         $("#walletqty").change(function () {
             var costStr = productService.calculateItemCost($("#walletsize").val(),$("#walletqty").val());
             $("#walletcost").html(costStr);   
         });
-
     };
 
 
@@ -105,10 +97,11 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
         {
             var fabricModalStr = productService.createFabricModalStr();
 
-            $("#dialogfabric").html(fabricModalStr);
+            $("#dialogproduct").html(fabricModalStr);
 
-            $( "#dialogfabric" ).dialog({
+            $( "#dialogproduct" ).dialog({
                 height: 455,
+                title:"Fabric Chart",
                 width:860,
                 draggable: true,
                 modal: true
@@ -119,6 +112,20 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
                 var idx = strArray[1] - 1;
                 $('#fabriclist').ddslick('select', {index: idx });
                 $("#dialogfabric").dialog("destroy");
+            });
+        }
+        else if (item == 'walletsize')
+        {
+            var walletSizeModalStr = productService.createWalletSizeModalStr();
+
+            $("#dialogproduct").html(walletSizeModalStr);
+
+            $( "#dialogproduct" ).dialog({
+                height: 350,
+                title:"Wallet Sizes",
+                width:800,
+                draggable: true,
+                modal: true
             });
         }
     };

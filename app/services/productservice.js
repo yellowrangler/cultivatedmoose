@@ -57,30 +57,59 @@
         return fabricStr;
     };
 
+    this.createWalletSizeModalStr = function () {
+        var walletSizeStr = "";
+        walletSizeStr = walletSizeStr + "<div class='container'><div class='row' style='padding-top:10px;' ><div class='col-lg-12'>";
+        walletSizeStr = walletSizeStr + "<h2 class='bodyFont'><center>Wallet Size Information</center></h2>";
+        walletSizeStr = walletSizeStr + "</div> <!-- end of section-article -->";
+        walletSizeStr = walletSizeStr + "</div> <!-- end of col-lg-12-->";
+        walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
+        walletSizeStr = walletSizeStr + "<div class='row' style='padding-top:25px;' >";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-3'>Wallet</div> <!-- end of col-lg-3-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-4'>Width</div> <!-- end of col-lg-4-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-4'>Height</div> <!-- end of col-lg-4-->";
+        walletSizeStr = walletSizeStr + "<div class='col-lg-1'></div> <!-- end of col-lg-1-->";
+
+        walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
+        walletSizeStr = walletSizeStr + "<div class='row' style='' >";
+        walletSizeStr = walletSizeStr + "<div class='col-lg-3'></div> <!-- end of col-lg-3-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Open</div> <!-- end of col-lg-2-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Closed</div> <!-- end of col-lg-2-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Open</div> <!-- end of col-lg-2-->";
+        walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Closed</div> <!-- end of col-lg-2->";
+        walletSizeStr = walletSizeStr + "<div class='col-lg-1'></div> <!-- end of col-lg-1-->";
+        walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
+
+        $.each(wallets, function() {
+            walletSizeStr = walletSizeStr + "<div class='row' style='' >";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-3'>"+this.text+"</div> <!-- end of col-lg-3-->";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.widthOpen+"</div> <!-- end of col-lg-2-->";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.widthClosed+"</div> <!-- end of col-lg-2-->";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.heightOpen+"</div> <!-- end of col-lg-2-->";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.widthClosed+"</div> <!-- end of col-lg-2-->";
+            walletSizeStr = walletSizeStr + "<div class='col-lg-1'></div> <!-- end of col-lg-1-->";
+            walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
+        });
+
+        walletSizeStr = walletSizeStr + "<div class='row' style='' >";
+        walletSizeStr = walletSizeStr + "<div class='dialogMsg col-lg-12'>These wallets are handmade and as a result these sizes are approximatations.</div> <!-- end of col-lg-12-->";
+        walletSizeStr = walletSizeStr +"</div><!-- end of row -->";
+
+        walletSizeStr = walletSizeStr +"</div><!-- end of container -->";
+
+        return walletSizeStr;
+    };
+
     this.getWalletImageSrc = function(id) {
          var walletObj = this.getWalletItem(id);
-         var itemsrc = walletObj.imageLargeSrc;
+         var itemsrc = {};
+         itemsrc.id = id;
+         itemsrc.imgWallet = walletObj.imageLargeSrc;
+         itemsrc.imgWalletClosed = walletObj.imageLargeClosedSrc;
+         itemsrc.imgWalletOpen = walletObj.imageLargeOpenSrc;
 
          return itemsrc;
     };
-
-    this.getDefaultWalletImage = function () {
-        return "img/products/wallet.png";
-    }
-
-    // this.createWalletImageSelectStr = function () {
-    //     var walletImageStr = "<center>";
-    //     $.each(wallets, function() {
-    //         walletImageStr = walletImageStr +"<div class='col-lg-4'>";
-    //         walletImageStr = walletImageStr +"<img name='walletimage' class='imgWalletDisplay' id='"+this.value+"' src='"+this.imageLargeSrc+"'> ";
-    //         walletImageStr = walletImageStr +"<div style='padding-top:10px;'><span style='font-size:10px;' >"+this.text+"</span></div>";
-    //         walletImageStr = walletImageStr +"</div> <!-- end of col-lg-4 -->";
-    //     });
-
-    //     walletImageStr = walletImageStr + "</center>";
-
-    //     return walletImageStr;
-    // }
 
     this.pad = function pad (str, max) {
       return str.length < max ? pad("0" + str, max) : str;
@@ -100,17 +129,26 @@
             value: 1,
             cost: 0.01,
             stringCost: "$0.01",
+            heightOpen:"6 inches",
+            widthOpen:"4 inches",
+            heightClosed:"3 inches",
+            widthClosed:"4 inches",
             imageLargeSrc: "img/products/SmallQuiltedWalletSingle.png",
             imageLargeClosedSrc: "img/products/SmallQuiltedWalletClosed.png",
             imageSmallClosedSrc: "img/products/SmallQuiltedWalletClosed.png",
             imageLargeOpenSrc: "img/products/SmallQuiltedWalletOpen.png",
-            imageSmallOpenSrc: "img/products/SmallQuiltedWalletOpen.png"           
+            imageSmallOpenSrc: "img/products/SmallQuiltedWalletOpen.png"     
+        },      
         {
             id: "mediumwallet",
             text: "Medium Wallet",
             value: 2,
             cost: 0.01,
             stringCost: "$0.01",
+            heightOpen:"7 inches",
+            widthOpen:"6 inches",
+            heightClosed:"3 1/2 inches",
+            widthClosed:"6 inches",            
             imageLargeSrc: "img/products/MediumQuiltedWalletSingle.png",
             imageLargeClosedSrc: "img/products/MediumQuiltedWalletClosed.png",
             imageSmallClosedSrc: "img/products/MediumQuiltedWalletClosed.png",
@@ -123,6 +161,10 @@
             value: 3,            
             cost: 0.01,
             stringCost: "$0.01",
+            heightOpen:"7 inches",
+            widthOpen:"6 inches",
+            heightClosed:"3 1/2 inches",
+            widthClosed:"7 inches",              
             imageLargeSrc: "img/products/LargeQuiltedWalletSingle.png",
             imageLargeClosedSrc: "img/products/LargeQuiltedWalletClosed.png",
             imageSmallClosedSrc: "img/products/LargeQuiltedWalletClosed.png",
@@ -130,33 +172,6 @@
             imageSmallOpenSrc: "img/products/LargeQuiltedWalletOpen.png"              
         }
     ];
-
-    // var wallets = [
-    //     {
-    //         id: "smallwallet",
-    //         text: "Small Wallet",
-    //         value: 1,
-    //         cost: 30.00,
-    //         stringCost: "$30.00",
-    //         imageLargeSrc: "img/SmallQuiltedWalletSingle.png"
-    //     },
-    //     {
-    //         id: "mediumwallet",
-    //         text: "Medium Wallet",
-    //         value: 2,
-    //         cost: 40.00,
-    //         stringCost: "$40.00",
-    //         imageLargeSrc: "img/MediumQuiltedWalletSingle.png"
-    //     },
-    //     {
-    //         id: "largewallet",
-    //         text: "Large Wallet",
-    //         value: 3,            
-    //         cost: 50.00,
-    //         stringCost: "$50.00",
-    //         imageLargeSrc: "img/LargeQuiltedWalletSingle.png"
-    //     }
-    // ];
 
     var fabrics = [
         {

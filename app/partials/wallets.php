@@ -12,8 +12,9 @@
 		<div id="outlinewallets" style="padding:10px;" class="curveBox">
 		<div style="padding-top:30px;" class="row">
 		<div class="col-lg-12">
-		<wallet-items-display itemimage="imageWallet">
-        </wallet-items-display>
+		<product-item-display 
+			productimageobj="imgobj">
+        </product-item-display>
 		</div> <!-- end of col-lg-12 -->
 		</div> <!-- end of row -->
 	</div> <!-- end of outlinewallets -->
@@ -44,6 +45,9 @@
 		<option data-ng-repeat="wallet in wallets" value="{{wallet.value}}">{{wallet.text}} - {{wallet.stringCost}}</option>
 		</select>
 		</div><!-- end of col-lg-6 -->
+		<div class="col-lg-3">
+		<button style="height:25px;" type="button" data-ng-click="showModalDialog('walletsize')" class="btn btn-warning btn-mini" data-toggle="button">Size Details</button>
+		</div><!-- end of col-lg-3-->
 	</div><!-- end of row-->
 	</div><!-- end of sizediv-->
 
@@ -84,4 +88,4 @@
 <div style="padding-bottom:40px;"></div>
 
 <!-- dialog code here -->
-<div id="dialogfabric" title="Fabric Chart" style="display:none;"></div>
+<div id="dialogproduct" title="" style="display:none;"></div>
