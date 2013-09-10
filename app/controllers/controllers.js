@@ -111,7 +111,7 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
                 var strArray = this.id.split("-");
                 var idx = strArray[1] - 1;
                 $('#fabriclist').ddslick('select', {index: idx });
-                $("#dialogfabric").dialog("destroy");
+                $("#dialogproduct").dialog("destroy");
             });
         }
         else if (item == 'walletsize')

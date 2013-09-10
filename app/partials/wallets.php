@@ -7,9 +7,8 @@
 	</div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->
 
-<div class="row" style="padding-top:15px;">
+<div class="row" style="padding-top:5px;">
 	<div class="col-lg-5">
-		<div id="outlinewallets" style="padding:10px;" class="curveBox">
 		<div style="padding-top:30px;" class="row">
 		<div class="col-lg-12">
 		<product-item-display 
@@ -17,7 +16,6 @@
         </product-item-display>
 		</div> <!-- end of col-lg-12 -->
 		</div> <!-- end of row -->
-	</div> <!-- end of outlinewallets -->
 	</div> <!-- end of span5 -->
 
 <div class="col-lg-7">
