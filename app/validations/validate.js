@@ -20,42 +20,43 @@ function validateWalletForm()
 
 function validateShippingForm()
 {
-	var err = "";
+	var err = 0;
 
-	err = simpleValidation($("#firstname"), "Please enter required First Name",2,255);
+
+	err = simpleValidation($("#firstname"),$("#alert_msg"), "Please enter required First Name",2,255);
 	if (err) return err;
 
-	err = simpleValidation($("#lastname"), "Please enter required Last Name",2,255);
+	err = simpleValidation($("#lastname"),$("#alert_msg"), "Please enter required Last Name",2,255);
 	if (err) return err;
 
-	err = simpleValidation($("#address1"), "Please enter required Address",2,255);
+	err = simpleValidation($("#address1"),$("#alert_msg"), "Please enter required Address",2,255);
 	if (err) return err;
 	
-	err = simpleValidation($("#city"), "Please enter required City",2,255);
+	err = simpleValidation($("#city"),$("#alert_msg"), "Please enter required City",2,255);
 	if (err) return err;
 
-	err = simpleValidation($("#state"), "Please enter required State",2,2);
+	err = simpleValidation($("#state"),$("#alert_msg"), "Please enter required State",2,2);
 	if (err) return err;
 
-	err = simpleValidation($("#zip"), "Please enter required ZIP",5,9);
+	err = simpleValidation($("#zip"),$("#alert_msg"), "Please enter required ZIP",5,9);
 	if (err) return err;
 
-	err = simplePhoneValidation($("#phone"),"Please enter required Phone Number");
+	err = simplePhoneValidation($("#phone"),$("#alert_msg"), "Please enter required Phone Number");
 	if (err) return err;
 
-	err = simpleValidation($("#email"), "Please enter required eMail address",2,255);
+	err = simpleValidation($("#email"),$("#alert_msg"), "Please enter required eMail address",2,255);
 	if (err) return err;
 
-	return 0;
+	return err;
 }
 
-function simpleValidation(obj,msg,lth_min,lth_max)
+function simpleValidation(obj,alert,msg,lth_min,lth_max)
 {
 	var test = obj.val();
 
 	if (test.length < lth_min || test.length > lth_max )
 	{
-		alert (msg);
+		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>');
 		obj.focus();
 
 		return 1;
@@ -64,13 +65,13 @@ function simpleValidation(obj,msg,lth_min,lth_max)
 	return 0;
 }
 
-function simpleNumberValidation(obj,msg,smallnbr)
+function simpleNumberValidation(obj,alert,msg,smallnbr)
 {
 	var test = obj.val();
 
 	if (isNaN(test))
 	{
-		alert (msg);
+		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
 
 		return 1;
@@ -78,7 +79,7 @@ function simpleNumberValidation(obj,msg,smallnbr)
 
 	if (test < smallnbr)
 	{
-		alert (msg);
+		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
 
 		return 1;
@@ -87,7 +88,7 @@ function simpleNumberValidation(obj,msg,smallnbr)
 	return 0;
 }
 
-function simplePhoneValidation(obj,msg)
+function simplePhoneValidation(obj,alert,msg)
 {
 	var test = obj.val();
 	var err = 0;
@@ -148,7 +149,7 @@ function simplePhoneValidation(obj,msg)
 
 	if (err)
 	{
-		alert (msg);
+		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
 
 		return 1;
@@ -157,7 +158,7 @@ function simplePhoneValidation(obj,msg)
 	return 0;
 }
 
-function ddslickValidation(obj,msg)
+function ddslickValidation(obj,alert,msg)
 {
 	var test = obj.data('ddslick');
 
@@ -170,4 +171,13 @@ function ddslickValidation(obj,msg)
 	}
 
 	return 0;
+}
+
+//
+// utility scripts
+//
+function closeAlert(alert)
+{
+	$(alert).html('');
+	// $(alert).alert('close');
 }

@@ -1,8 +1,8 @@
 <div class="container">
-<div class="row" style="padding-top:10px;">
+<div class="row" style="padding-top:0px;">
 <div class="col-lg-12">
 <div class="section-article">
-<h2 class="bodyFont">Checkout</h2>
+<h3 class="bodyFont">Checkout</h3>
 </div> <!-- end of section-article -->
 </div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->
@@ -12,118 +12,73 @@
 <panel>
 <form id="shipping" method="post">
     <div style="padding-top:40px;padding-left:35px;">
+    <div id="alert_msg"></div>
     <table>
     <tr style="height:45px;">
-    	<td align="right"><strong>First Name</strong></td>
+    	<td align="right"><strong>First Name</strong>
+        </td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px" type="text" id="firstname" name="firstname" placeholder="Enter your Full name" required>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px" type="text" id="firstname" name="firstname" placeholder="Enter your Full name" required>
     	</td>
     </tr>
+    <div id="alert_firstname"></div>
     <tr style="height:45px;">
         <td align="right"><strong>Last Name</strong></td>
         <td align="left" style="padding-left:10px;" colspan=4>
-            <input style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
+            <input onkeydown="closeAlert('#alert_msg')" style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
         </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Address</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
-    	</td>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
+        </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>&nbsp;</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your Shipping Address">
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your Shipping Address">
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>City</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
     	</td>
     </tr>
 	<tr style="height:45px;">
     	<td align="right"><strong>State</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<select name="state" id="state">
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-            </select>
+            <state-list-display onkeydown="closeAlert('#alert_msg')" 
+                nameid="state">
+            </state-list-display>   
     	</td>
 
     	<td style="width:50px;">&nbsp;</td>
 
     	<td align="right"><strong>Zip</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<input style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP" required>
-    	</td>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP" required>
+        </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Phone</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input class="tips" style="width:170px;" type="text" id="phone" name="phone" data-toggle="tooltip" data-placement="right" title="Dashes will be added as you type." placeholder="Enter your phone number" required>
+            <phone-number-display class="tips" onkeydown="closeAlert('#alert_msg')" data-toggle='tooltip' data-placement='right' title='Dashes will be added as you type.'
+                    nameid="phone" classname="">
+            </phone-number-display> 
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Country</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="country" name="country" placeholder="Enter your Shippng Country if not USA">
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="country" name="country" placeholder="Enter your Shippng Country if not USA">
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>eMail</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="email " id="email" name="email" placeholder="Enter your eMail address" required>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="email " id="email" name="email" placeholder="Enter your eMail address" required>
     	</td>
     </tr>
     </table>  

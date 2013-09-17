@@ -15,7 +15,7 @@
 
 <body style="background:white;" data-ng-controller="cultivatedmooseParentController" >
 
-<div style="padding-left:50px;padding-bottom:25px;width:100%;background:white">
+<div style="padding-left:50px;padding-bottom:25px;width:100%;background:#FBF1E4">
     <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/cultivatedmooseorange.png" alt="logo"></a>
     <div style="padding-top:35px;">
         <span id="cmtitle" class="bodyFont" style="padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;" >Mad Moose Creations</span> 
@@ -29,16 +29,17 @@
 
 <div style="background:white;clear:both;" data-ng-view=""></div>
 
-<div style="background:white;height:75px;">
+</div> <!-- end of container top -->
+
+<div style="background:#FBF1E4;height:275px;">
     <div style="padding-top:30px;padding-left:75px;float:left;">
-        <a href="#/aboutus" style="color:orange;text-decoration:none;"><strong>About Myself</strong></a>
+        <a href="#/aboutus" style="color:orange;text-decoration:none;"><strong>Our Story</strong></a>
     </div>
     <div style="padding-top:30px;padding-right:35px;float:right;">
         <strong>Twitter: <a style="color:orange;padding-top:30px;text-decoration:none;" href="http://twitter.com/cultivatedmoose">@madmoosecreations</a></strong>
     </div>
-</div> <!-- end of container -->
+</div> <!-- end of footer -->
 
-</div> <!-- end of container top -->
 <!-- Vendor Libs -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>

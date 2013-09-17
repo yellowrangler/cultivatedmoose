@@ -1,8 +1,8 @@
 <div class="container">
-<div class="row" style="padding-top:10px;" >
+<div class="row" style="padding-top:0px;" >
 <div class="col-lg-9">
 <div class="section-article">
-<h2 class="bodyFont">Shopping Cart</h2>
+<h3 class="bodyFont">Shopping Cart</h3>
 </div> <!-- end of section-article -->
 </div> <!-- end of col-lg-9-->
 <div class="col-lg-3">

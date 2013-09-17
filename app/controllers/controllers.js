@@ -173,22 +173,6 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
         //
         $(".tips").tooltip();
 
-        //
-        // restrict phone input
-        //
-        $("#phone").keypress(function(e) {
-            if (e.keyCode < 47 || e.keyCode > 57)
-            {
-                e.preventDefault();
-
-                return false;
-            }
-
-            var test = this.value;
-            if (test.length == 3 || test.length == 7)
-                this.value = test + "-";
-        });
-
         $scope.shoppingCartItems = shoppingcartService.getShoppingCartItems();
 
         var merchindisecost = shoppingcartService.getShoppingCartTotalCostNbr();

@@ -1,8 +1,8 @@
 <div class="container">
-<div class="row" style="padding-top:10px;">
+<div class="row" style="padding-top:0px;">
 <div class="col-lg-12">
 <div class="section-article">
-<h2 class="bodyFont">Confirmation of Merchadise Cancel</h2>
+<h3 class="bodyFont">Confirmation of Merchadise Cancel</h3>
 </div> <!-- end of section-article -->
 </div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->

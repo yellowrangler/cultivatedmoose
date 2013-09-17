@@ -2,7 +2,7 @@
 <div class="row" style="padding-top:0px;" >
 <div class="col-lg-12">
 <div class="section-article">
-<h2 class="bodyFont">Mad Moose Creator and Owner</h2>
+<h3 class="bodyFont">Mad Moose Creator and Owner</h3>
 </div> <!-- end of section-article -->
 </div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->
