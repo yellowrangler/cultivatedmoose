@@ -59,20 +59,16 @@
 
     this.createWalletSizeModalStr = function () {
         var walletSizeStr = "";
-        walletSizeStr = walletSizeStr + "<div class='container'><div class='row' style='padding-top:10px;' ><div class='col-lg-12'>";
-        walletSizeStr = walletSizeStr + "<h2 class='bodyFont'><center>Wallet Size Information</center></h2>";
-        walletSizeStr = walletSizeStr + "</div> <!-- end of section-article -->";
-        walletSizeStr = walletSizeStr + "</div> <!-- end of col-lg-12-->";
-        walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
+        walletSizeStr = walletSizeStr + "<div style='padding-left:20px;' class='container'>";
         walletSizeStr = walletSizeStr + "<div class='row' style='padding-top:25px;' >";
-        walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-3'>Wallet</div> <!-- end of col-lg-3-->";
+        walletSizeStr = walletSizeStr + "<div class='col-lg-3'>&nbsp;</div> <!-- end of col-lg-3-->";
         walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-4'>Width</div> <!-- end of col-lg-4-->";
         walletSizeStr = walletSizeStr + "<div class='dialogTitlesA col-lg-4'>Height</div> <!-- end of col-lg-4-->";
         walletSizeStr = walletSizeStr + "<div class='col-lg-1'></div> <!-- end of col-lg-1-->";
 
         walletSizeStr = walletSizeStr + "</div> <!-- end of row -->";
         walletSizeStr = walletSizeStr + "<div class='row' style='' >";
-        walletSizeStr = walletSizeStr + "<div class='col-lg-3'></div> <!-- end of col-lg-3-->";
+        walletSizeStr = walletSizeStr + "<div class='col-lg-3'>&nbsp;</div> <!-- end of col-lg-3-->";
         walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Open</div> <!-- end of col-lg-2-->";
         walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Closed</div> <!-- end of col-lg-2-->";
         walletSizeStr = walletSizeStr + "<div class='dialogTitlesB col-lg-2'>Open</div> <!-- end of col-lg-2-->";
@@ -82,7 +78,7 @@
 
         $.each(wallets, function() {
             walletSizeStr = walletSizeStr + "<div class='row' style='' >";
-            walletSizeStr = walletSizeStr + "<div class='col-lg-3'>"+this.text+"</div> <!-- end of col-lg-3-->";
+            walletSizeStr = walletSizeStr + "<div name='walletsizedisplay' id='"+this.value+"' class='walletDialogDisplay col-lg-3'>"+this.text+"</div> <!-- end of col-lg-3-->";
             walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.widthOpen+"</div> <!-- end of col-lg-2-->";
             walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.widthClosed+"</div> <!-- end of col-lg-2-->";
             walletSizeStr = walletSizeStr + "<div class='col-lg-2'>"+this.heightOpen+"</div> <!-- end of col-lg-2-->";
@@ -143,8 +139,8 @@
             id: "mediumwallet",
             text: "Medium Wallet",
             value: 2,
-            cost: 0.01,
-            stringCost: "$0.01",
+            cost: 0.02,
+            stringCost: "$0.02",
             heightOpen:"7 inches",
             widthOpen:"6 inches",
             heightClosed:"3 1/2 inches",
@@ -159,8 +155,8 @@
             id: "largewallet",
             text: "Large Wallet",
             value: 3,            
-            cost: 0.01,
-            stringCost: "$0.01",
+            cost: 0.03,
+            stringCost: "$0.03",
             heightOpen:"7 inches",
             widthOpen:"6 inches",
             heightClosed:"3 1/2 inches",

@@ -122,7 +122,7 @@ $msgLog->writeLog("Custoner Order Confirmed paid for  ".$row["firstname"]." ".$r
 // pass back info
 //
 $msg["status"] = "ok";
-$msg["html"] = "<h4>Congratulations ".$row["firstname"]." ".$row["lastname"]."! Your order is confirmed. Expect two weeks before delivery.</h4>";
+$msg["html"] = "<span class='CancelConfirmationMsg'>Congratulations ".$row["firstname"]." ".$row["lastname"]."! Your order is confirmed. Expect two weeks before delivery.</span>";
 
 //
 // close db connection

@@ -75,8 +75,9 @@
 	</div><!-- end of row-->
 	</div><!-- end of addtocart-->
 
-	<div id="endofform" style="padding-top:30px;"></div><!-- end of endofform-->
+	<div id="endofform" style="padding-top:15px;"></div><!-- end of endofform-->
 	</form>
+	<div id="alert_msg"></div>
 	</div> <!-- end of curvebox -->
 </div> <!-- end of col-lg-7 -->
 

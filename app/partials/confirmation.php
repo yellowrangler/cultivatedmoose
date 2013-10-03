@@ -10,7 +10,7 @@
 <div class="row">
 <div class="col-lg-12">
 <panel>
-<div style="padding-top:50px;padding-bottom:250px;" id="confiramationmsg"></div>
+<div class="bodyFont" style="padding-top:75px; padding-left:15px;padding-top:50px;padding-bottom:250px;" id="confiramationmsg"></div>
 </panel>
 </div><!-- end of col-lg-12 -->
 </div><!-- end of row -->

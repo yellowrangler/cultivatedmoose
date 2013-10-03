@@ -122,7 +122,7 @@ $msgLog->writeLog("Custoner Order Confirmed canceled for  ".$row["firstname"]." 
 // pass back info
 //
 $msg["status"] = "ok";
-$msg["html"] = "<h4>As requested ".$row["firstname"]." ".$row["lastname"].". Your order is canceled. </h4>";
+$msg["html"] = "<span class='CancelConfirmationMsg'> As requested ".$row["firstname"]." ".$row["lastname"].". Your order is canceled.</span>";
 
 //
 // close db connection

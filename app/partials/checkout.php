@@ -25,31 +25,31 @@
     <tr style="height:45px;">
         <td align="right"><strong>Last Name</strong></td>
         <td align="left" style="padding-left:10px;" colspan=4>
-            <input onkeydown="closeAlert('#alert_msg')" style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
+            <input style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
         </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>Address</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
+	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
         </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>&nbsp;</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your Shipping Address">
+	    	<input style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your Shipping Address">
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>City</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
+	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
     	</td>
     </tr>
 	<tr style="height:45px;">
     	<td align="right"><strong>State</strong></td>
     	<td align="left" style="padding-left:10px;">
-            <state-list-display onkeydown="closeAlert('#alert_msg')" 
+            <state-list-display 
                 nameid="state">
             </state-list-display>   
     	</td>
@@ -58,7 +58,7 @@
 
     	<td align="right"><strong>Zip</strong></td>
     	<td align="left" style="padding-left:10px;">
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP" required>
+	    	<input  style="width:100px;" type="text" id="zip" name="zip" placeholder="Enter your ZIP" required>
         </td>
     </tr>
     <tr style="height:45px;">
@@ -72,13 +72,13 @@
     <tr style="height:45px;">
     	<td align="right"><strong>Country</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="text" id="country" name="country" placeholder="Enter your Shippng Country if not USA">
+	    	<input style="width:400px;" type="text" id="country" name="country" placeholder="Enter your Shippng Country if not USA">
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>eMail</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px;" type="email " id="email" name="email" placeholder="Enter your eMail address" required>
+	    	<input style="width:400px;" type="email " id="email" name="email" placeholder="Enter your eMail address" required>
     	</td>
     </tr>
     </table>  

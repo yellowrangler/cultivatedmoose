@@ -6,13 +6,13 @@ function validateWalletForm()
 {
 	var err = "";
 
-	err = ddslickValidation($("#fabriclist"), "Please select fabric color");
+	err = ddslickValidation($("#fabriclist"),$("#alert_msg"),"Please select fabric color");
 	if (err) return err;
 
-	err = simpleNumberValidation($("#walletsize"), "Please select size", 1);
+	err = simpleNumberValidation($("#walletsize"),$("#alert_msg"), "Please select size", 1);
 	if (err) return err;
 
-	err = simpleNumberValidation($("#walletqty"), "Please select quantity", 1);
+	err = simpleNumberValidation($("#walletqty"),$("#alert_msg"), "Please select quantity", 1);
 	if (err) return err;
 
 	return 0;
@@ -58,6 +58,7 @@ function simpleValidation(obj,alert,msg,lth_min,lth_max)
 	{
 		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>');
 		obj.focus();
+		var t=setTimeout(function(){closeAlert(alert)},3000);
 
 		return 1;
 	}
@@ -73,6 +74,7 @@ function simpleNumberValidation(obj,alert,msg,smallnbr)
 	{
 		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
+		var t=setTimeout(function(){closeAlert(alert)},3000);
 
 		return 1;
 	}
@@ -81,6 +83,7 @@ function simpleNumberValidation(obj,alert,msg,smallnbr)
 	{
 		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
+		var t=setTimeout(function(){closeAlert(alert)},3000);
 
 		return 1;
 	}
@@ -144,6 +147,7 @@ function simplePhoneValidation(obj,alert,msg)
 		{
 			var formattedStr = test.slice(0,3)+"-"+test.slice(3,6)+"-"+test.slice(6);
 			obj.val(formattedStr);
+			var t=setTimeout(function(){closeAlert(alert)},3000);
 		}
 	}
 
@@ -151,6 +155,7 @@ function simplePhoneValidation(obj,alert,msg)
 	{
 		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
+		var t=setTimeout(function(){closeAlert(alert)},3000);
 
 		return 1;
 	}
@@ -164,8 +169,9 @@ function ddslickValidation(obj,alert,msg)
 
 	if (test.selectedIndex < 0)
 	{
-		alert (msg);
+		$(alert).html('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>'+msg+'</span></div>')
 		obj.focus();
+		var t=setTimeout(function(){closeAlert(alert)},3000);
 
 		return 1;
 	}

@@ -3,7 +3,7 @@
 <div class="row" style="padding-top:10px;" >
 	<div class="col-lg-12">
 	<div class="section-article">
-	<h2 class="bodyFont">Canvas Duffle Bags</h2>
+	<h3 class="bodyFont">Canvas Duffle Bags</h3>
 	</div> <!-- end of section-article -->
 	</div> <!-- end of col-lg-12-->
 </div> <!-- end of row -->

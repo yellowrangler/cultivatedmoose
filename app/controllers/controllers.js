@@ -104,6 +104,10 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
                 title:"Fabric Chart",
                 width:860,
                 draggable: true,
+                open:function () {
+                    var closeBtn = $('.ui-dialog-titlebar-close');
+                    closeBtn.append('<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>');
+                },
                 modal: true
             });
 
@@ -121,11 +125,20 @@ controllers.productController = function ($scope, $http, $location, cultivatedmo
             $("#dialogproduct").html(walletSizeModalStr);
 
             $( "#dialogproduct" ).dialog({
-                height: 350,
+                height: 300,
                 title:"Wallet Sizes",
                 width:800,
                 draggable: true,
+                open:function () {
+                    var closeBtn = $('.ui-dialog-titlebar-close');
+                    closeBtn.append('<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>');
+                },
                 modal: true
+            });
+
+            $('[name="walletsizedisplay"]').click(function() {
+                $("#walletsize").val(this.id).change();
+                $("#dialogproduct").dialog("destroy");
             });
         }
     };
@@ -258,7 +271,7 @@ controllers.purchaseConfirmationController = function ($scope, $http, $route, $l
                     // whatever it needs
                     //
                     shoppingcartService.removeAllItemsFromShoppingCart();
-                   $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
+                    $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
                     // $("#shoppingcartitems").html("");
 
                     //
@@ -301,7 +314,7 @@ controllers.purchaseCancelController = function ($scope, $http, $route, $locatio
                     // whatever it needs
                     //
                     shoppingcartService.removeAllItemsFromShoppingCart();
-                   $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
+                    $scope.$parent.shoppingcartitemnbr = shoppingcartService.numberOfShoppingCartItems();
                     // $("#shoppingcartitems").html("");
 
                     //
