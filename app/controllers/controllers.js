@@ -206,7 +206,6 @@ controllers.checkoutController = function ($scope, $http, $route, $location, cul
                 return false;
 
             var serializedData = $("#shipping").serialize();
-
             cultivatedmooseApp.addShoppingCartItem(serializedData)
                 .success( function(msgArray) {
                     //
