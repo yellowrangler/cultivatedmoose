@@ -36,7 +36,7 @@
     <div style="padding-top:30px;padding-left:75px;float:left;">
         <a href="#/aboutus" style="color:orange;text-decoration:none;"><strong>Our Story</strong></a>
     </div>
-    <div style="padding-top:30px;padding-right:55px;float:right;">
+    <div id="follow" style="padding-top:30px;padding-right:55px;float:right;">
         <span style="padding-top:5px;color:orange;font-size:110%;font-weight:900;">Follow us On &nbsp; </span>
         
         <a href="https://www.facebook.com/MadMooseCreations" style="pading-left:35px;text-decoration:none;color:orange;font-size:20px;"> <i style="display:inline-block;padding-top:5px;" title="MadMooseCreations @ Facebook" class="fa fa-facebook-square"></i></a>

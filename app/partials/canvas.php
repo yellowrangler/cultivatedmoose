@@ -17,4 +17,4 @@
 </div> <!-- end of row -->
 
 </div> <!-- end of container -->
-<div style="padding-bottom:6200px;"></div>
+<div style="padding-bottom:40px;"></div>
