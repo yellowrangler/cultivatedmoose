@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="css/bootstrap-glyphicons.css" rel="stylesheet" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT|PT+Sans" type="text/css">
@@ -35,8 +36,18 @@
     <div style="padding-top:30px;padding-left:75px;float:left;">
         <a href="#/aboutus" style="color:orange;text-decoration:none;"><strong>Our Story</strong></a>
     </div>
-    <div style="padding-top:30px;padding-right:35px;float:right;">
-        <strong>Twitter: <a style="color:orange;padding-top:30px;text-decoration:none;" href="http://twitter.com/cultivatedmoose">@madmoosecreations</a></strong>
+    <div style="padding-top:30px;padding-right:55px;float:right;">
+        <span style="padding-top:5px;color:orange;font-size:110%;font-weight:900;">Follow us On &nbsp; </span>
+        
+        <a href="https://www.facebook.com/MadMooseCreations" style="pading-left:35px;text-decoration:none;color:orange;font-size:20px;"> <i style="display:inline-block;padding-top:5px;" title="MadMooseCreations @ Facebook" class="fa fa-facebook-square"></i></a>
+
+        <span style="width:45px;">&nbsp;</span>
+
+        <a href="http://twitter.com/MadMooseCreations" style="pading-left:35px;text-decoration:none;color:orange;font-size:20px;"> <i style="display:inline-block;padding-top:5px;" title="MadMooseCreations @ Twitter" class="fa fa-twitter-square"></i></a>
+
+        <span style="width:45px;">&nbsp;</span>
+
+        <a href="http://http://www.pinterest.com/MadMooseCreations/boards/" style="pading-left:35px;text-decoration:none;color:orange;font-size:20px;"> <i style="display:inline-block;padding-top:5px;" title="MadMooseCreations @ pinterest" class="fa fa-pinterest-square"></i></a>
     </div>
 </div> <!-- end of footer -->
 
