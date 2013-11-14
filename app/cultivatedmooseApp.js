@@ -1,4 +1,4 @@
-var cultivatedmooseApp = angular.module ('cultivatedmooseApp', []);
+var cultivatedmooseApp = angular.module ('cultivatedmooseApp', ['ngRoute']);
 
 
 // define routes for app
