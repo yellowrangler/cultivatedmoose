@@ -95,9 +95,14 @@ cultivatedmooseApp.directive('phoneNumberDisplay', function () {
         replace: true,
         transclude: false,
         link: function (scope, elements, attrs, controllers) { 
-            var nameid = "#"+attrs.nameid;
+            // var nameid = "#"+attrs.nameid;
 
             elements.bind("keydown keypress", function(e) {
+                if (e.keyCode == 8 || e.keyCode == 46)
+                {
+                    return false;
+                }
+
                 if (e.keyCode < 47 || e.keyCode > 57)
                 {
                     e.preventDefault();

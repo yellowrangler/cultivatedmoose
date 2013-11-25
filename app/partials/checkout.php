@@ -18,14 +18,14 @@
     	<td align="right"><strong>First Name</strong>
         </td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px" type="text" id="firstname" name="firstname" placeholder="Enter your Full name" required>
+	    	<input onkeydown="closeAlert('#alert_msg')" style="width:400px" type="text" id="firstname" name="firstname" placeholder="Enter your First name" required>
     	</td>
     </tr>
     <div id="alert_firstname"></div>
     <tr style="height:45px;">
         <td align="right"><strong>Last Name</strong></td>
         <td align="left" style="padding-left:10px;" colspan=4>
-            <input style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Full name" required>
+            <input style="width:400px" type="text" id="lastname" name="lastname" placeholder="Enter your Last name" required>
         </td>
     </tr>
     <tr style="height:45px;">
